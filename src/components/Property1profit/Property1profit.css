@@ -1,0 +1,50 @@
+/* Generated CSS for Figma Layer: "Property 1=profit" */
+.Property1profit-container {
+  background-color: #eceef0;
+  border: 1px solid var(--uedp-slate-600);
+  border-radius: 12px;
+  gap: var(--uedp-gap-4);
+  padding: var(--uedp-padding-6);
+  color: var(--uedp-slate-50);
+  font-family: var(--uedp-font-base);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.Property1profit-container:hover {
+  border-color: var(--uedp-emerald-400);
+  transform: translateY(-2px);
+}
+
+.Property1profit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--uedp-slate-800);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.Property1profit-title {
+  font-family: var(--uedp-font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--uedp-slate-50);
+}
+
+.Property1profit-badge {
+  font-size: 11px;
+  background-color: var(--uedp-emerald-950);
+  color: var(--uedp-emerald-400);
+  border: 1px solid var(--uedp-emerald-400);
+  padding: 2px 8px;
+  border-radius: var(--uedp-rounded-full);
+}
+
+.Property1profit-content {
+  font-size: 14px;
+  color: var(--uedp-slate-400);
+  line-height: 1.5;
+}

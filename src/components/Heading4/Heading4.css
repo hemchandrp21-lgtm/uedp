@@ -1,0 +1,50 @@
+/* Generated CSS for Figma Layer: "Heading 4" */
+.Heading4-container {
+  background-color: var(--uedp-slate-900);
+  border: 1px solid var(--uedp-slate-600);
+  border-radius: var(--uedp-rounded-xl);
+  gap: var(--uedp-gap-4);
+  padding: var(--uedp-padding-6);
+  color: var(--uedp-slate-50);
+  font-family: var(--uedp-font-base);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.Heading4-container:hover {
+  border-color: var(--uedp-emerald-400);
+  transform: translateY(-2px);
+}
+
+.Heading4-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--uedp-slate-800);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.Heading4-title {
+  font-family: var(--uedp-font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--uedp-slate-50);
+}
+
+.Heading4-badge {
+  font-size: 11px;
+  background-color: var(--uedp-emerald-950);
+  color: var(--uedp-emerald-400);
+  border: 1px solid var(--uedp-emerald-400);
+  padding: 2px 8px;
+  border-radius: var(--uedp-rounded-full);
+}
+
+.Heading4-content {
+  font-size: 14px;
+  color: var(--uedp-slate-400);
+  line-height: 1.5;
+}

@@ -1,0 +1,57 @@
+/* Auto-generated Figma Design Tokens CSS */
+:root {
+  /* Base Color Palette Tokens */
+  --uedp-slate-50: #f8fafc; /* Figma Var: VariableID:27:41 */
+  --uedp-slate-100: #f1f5f9; /* Figma Var: VariableID:6:331 */
+  --uedp-slate-400: #94a3b8; /* Figma Var: VariableID:6:332 */
+  --uedp-slate-600: #475569; /* Figma Var: VariableID:6:333 */
+  --uedp-slate-800: #1e293b; /* Figma Var: VariableID:6:338 */
+  --uedp-slate-900: #0f172a; /* Figma Var: VariableID:6:340 */
+  --uedp-slate-950: #020617; /* Figma Var: VariableID:6:336 */
+  --uedp-slate-600-alt: #475569; /* Figma Var: VariableID:6:342 */
+  --uedp-slate-950-alt: #020617; /* Figma Var: VariableID:6:334 */
+  --uedp-neutral-50: #fafafa; /* Figma Var: VariableID:3:108 */
+  --uedp-neutral-400: #9ca3af; /* Figma Var: VariableID:3:101 */
+  --uedp-emerald-400: #34d399; /* Figma Var: VariableID:6:349 */
+  --uedp-emerald-500: #22c55e; /* Figma Var: VariableID:3:201 */
+  --uedp-emerald-900: #022c22; /* Figma Var: VariableID:3:217 */
+  --uedp-emerald-950: #052e16; /* Figma Var: VariableID:6:348 */
+  --uedp-emerald-400-alt: #34d399; /* Figma Var: VariableID:6:363 */
+  --uedp-amber-300: #fcd34d; /* Figma Var: VariableID:3:166 */
+  --uedp-amber-400: #fbbf24; /* Figma Var: VariableID:6:352 */
+  --uedp-amber-700: #a16207; /* Figma Var: VariableID:3:181 */
+  --uedp-amber-950: #431407; /* Figma Var: VariableID:6:351 */
+  --uedp-amber-300-alt: #fcd34d; /* Figma Var: VariableID:6:364 */
+  --uedp-amber-700-stroke: #b45309; /* Figma Var: VariableID:6:353 */
+  --uedp-red-400: #f87171; /* Figma Var: VariableID:6:355 */
+  --uedp-red-500: #ef4444; /* Figma Var: VariableID:3:146 */
+  --uedp-red-700: #b91c1c; /* Figma Var: VariableID:6:356 */
+  --uedp-red-800: #991b1b; /* Figma Var: VariableID:3:149 */
+  --uedp-red-950: #450a0a; /* Figma Var: VariableID:3:151 */
+  --uedp-red-950-alt: #450a0a; /* Figma Var: VariableID:6:354 */
+  --uedp-teal-300: #5eead4; /* Figma Var: VariableID:6:335 */
+  --uedp-teal-950: #102d30; /* Figma Var: VariableID:45:101 */
+  --uedp-purple-700: #6d28d9; /* Figma Var: VariableID:3:280 */
+  --uedp-indigo-800: #3730a3; /* Figma Var: VariableID:3:270 */
+  --uedp-blue-400: #60a5fa; /* Figma Var: VariableID:6:362 */
+  --uedp-lime-800: #3f6212; /* Figma Var: VariableID:3:193 */
+
+  /* Foundational Tokens (Spacing, Radii, Typography) */
+  --uedp-gap-2: 4px; /* Figma Var: VariableID:3:16 */
+  --uedp-gap-4: 8px; /* Figma Var: VariableID:3:17 */
+  --uedp-gap-6: 16px; /* Figma Var: VariableID:3:18 */
+  --uedp-gap-8: 24px; /* Figma Var: VariableID:3:20 */
+  --uedp-padding-2: 4px; /* Figma Var: VariableID:3:10 */
+  --uedp-padding-4: 8px; /* Figma Var: VariableID:3:12 */
+  --uedp-padding-6: 16px; /* Figma Var: VariableID:3:19 */
+  --uedp-padding-8: 24px; /* Figma Var: VariableID:3:21 */
+  --uedp-rounded-sm: 4px; /* Figma Var: VariableID:3:30 */
+  --uedp-rounded-md: 8px; /* Figma Var: VariableID:3:31 */
+  --uedp-rounded-lg: 12px; /* Figma Var: VariableID:3:32 */
+  --uedp-rounded-xl: 16px; /* Figma Var: VariableID:3:33 */
+  --uedp-rounded-2xl: 24px; /* Figma Var: VariableID:3:34 */
+  --uedp-rounded-3xl: 32px; /* Figma Var: VariableID:3:35 */
+  --uedp-rounded-full: 9999px; /* Figma Var: VariableID:3:36 */
+  --uedp-font-base: Inter, sans-serif; /* Figma Var: VariableID:37:8 */
+  --uedp-font-heading: Outfit, sans-serif; /* Figma Var: VariableID:37:11 */
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Foundational Tokens",
+  "version": "1.0.0",
+  "tokens": {
+    "spacing": {
+      "gap-2": { "value": "4px", "com.figma.variableId": "VariableID:3:16", "cssVar": "--uedp-gap-2" },
+      "gap-4": { "value": "8px", "com.figma.variableId": "VariableID:3:17", "cssVar": "--uedp-gap-4" },
+      "gap-6": { "value": "16px", "com.figma.variableId": "VariableID:3:18", "cssVar": "--uedp-gap-6" },
+      "gap-8": { "value": "24px", "com.figma.variableId": "VariableID:3:20", "cssVar": "--uedp-gap-8" },
+      "padding-2": { "value": "4px", "com.figma.variableId": "VariableID:3:10", "cssVar": "--uedp-padding-2" },
+      "padding-4": { "value": "8px", "com.figma.variableId": "VariableID:3:12", "cssVar": "--uedp-padding-4" },
+      "padding-6": { "value": "16px", "com.figma.variableId": "VariableID:3:19", "cssVar": "--uedp-padding-6" },
+      "padding-8": { "value": "24px", "com.figma.variableId": "VariableID:3:21", "cssVar": "--uedp-padding-8" }
+    },
+    "radii": {
+      "rounded-sm": { "value": "4px", "com.figma.variableId": "VariableID:3:30", "cssVar": "--uedp-rounded-sm" },
+      "rounded-md": { "value": "8px", "com.figma.variableId": "VariableID:3:31", "cssVar": "--uedp-rounded-md" },
+      "rounded-lg": { "value": "12px", "com.figma.variableId": "VariableID:3:32", "cssVar": "--uedp-rounded-lg" },
+      "rounded-xl": { "value": "16px", "com.figma.variableId": "VariableID:3:33", "cssVar": "--uedp-rounded-xl" },
+      "rounded-2xl": { "value": "24px", "com.figma.variableId": "VariableID:3:34", "cssVar": "--uedp-rounded-2xl" },
+      "rounded-3xl": { "value": "32px", "com.figma.variableId": "VariableID:3:35", "cssVar": "--uedp-rounded-3xl" },
+      "rounded-full": { "value": "9999px", "com.figma.variableId": "VariableID:3:36", "cssVar": "--uedp-rounded-full" }
+    },
+    "typography": {
+      "font-family-base": { "value": "Inter, sans-serif", "com.figma.variableId": "VariableID:37:8", "cssVar": "--uedp-font-base" },
+      "font-family-heading": { "value": "Outfit, sans-serif", "com.figma.variableId": "VariableID:37:11", "cssVar": "--uedp-font-heading" }
+    }
+  }
+}

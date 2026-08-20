@@ -1,0 +1,60 @@
+{
+  "name": "Base Palette Tokens",
+  "version": "1.0.0",
+  "tokens": {
+    "slate": {
+      "50": { "value": "#f8fafc", "com.figma.variableId": "VariableID:27:41", "cssVar": "--uedp-slate-50" },
+      "100": { "value": "#f1f5f9", "com.figma.variableId": "VariableID:6:331", "cssVar": "--uedp-slate-100" },
+      "400": { "value": "#94a3b8", "com.figma.variableId": "VariableID:6:332", "cssVar": "--uedp-slate-400" },
+      "600": { "value": "#475569", "com.figma.variableId": "VariableID:6:333", "cssVar": "--uedp-slate-600" },
+      "600-alt": { "value": "#475569", "com.figma.variableId": "VariableID:6:342", "cssVar": "--uedp-slate-600-alt" },
+      "800": { "value": "#1e293b", "com.figma.variableId": "VariableID:6:338", "cssVar": "--uedp-slate-800" },
+      "900": { "value": "#0f172a", "com.figma.variableId": "VariableID:6:340", "cssVar": "--uedp-slate-900" },
+      "950": { "value": "#020617", "com.figma.variableId": "VariableID:6:336", "cssVar": "--uedp-slate-950" },
+      "950-alt": { "value": "#020617", "com.figma.variableId": "VariableID:6:334", "cssVar": "--uedp-slate-950-alt" }
+    },
+    "neutral": {
+      "50": { "value": "#fafafa", "com.figma.variableId": "VariableID:3:108", "cssVar": "--uedp-neutral-50" },
+      "400": { "value": "#9ca3af", "com.figma.variableId": "VariableID:3:101", "cssVar": "--uedp-neutral-400" }
+    },
+    "emerald": {
+      "400": { "value": "#34d399", "com.figma.variableId": "VariableID:6:349", "cssVar": "--uedp-emerald-400" },
+      "400-alt": { "value": "#34d399", "com.figma.variableId": "VariableID:6:363", "cssVar": "--uedp-emerald-400-alt" },
+      "500": { "value": "#22c55e", "com.figma.variableId": "VariableID:3:201", "cssVar": "--uedp-emerald-500" },
+      "900": { "value": "#022c22", "com.figma.variableId": "VariableID:3:217", "cssVar": "--uedp-emerald-900" },
+      "950": { "value": "#052e16", "com.figma.variableId": "VariableID:6:348", "cssVar": "--uedp-emerald-950" }
+    },
+    "amber": {
+      "300": { "value": "#fcd34d", "com.figma.variableId": "VariableID:3:166", "cssVar": "--uedp-amber-300" },
+      "300-alt": { "value": "#fcd34d", "com.figma.variableId": "VariableID:6:364", "cssVar": "--uedp-amber-300-alt" },
+      "400": { "value": "#fbbf24", "com.figma.variableId": "VariableID:6:352", "cssVar": "--uedp-amber-400" },
+      "700": { "value": "#a16207", "com.figma.variableId": "VariableID:3:181", "cssVar": "--uedp-amber-700" },
+      "700-stroke": { "value": "#b45309", "com.figma.variableId": "VariableID:6:353", "cssVar": "--uedp-amber-700-stroke" },
+      "950": { "value": "#431407", "com.figma.variableId": "VariableID:6:351", "cssVar": "--uedp-amber-950" }
+    },
+    "red": {
+      "400": { "value": "#f87171", "com.figma.variableId": "VariableID:6:355", "cssVar": "--uedp-red-400" },
+      "500": { "value": "#ef4444", "com.figma.variableId": "VariableID:3:146", "cssVar": "--uedp-red-500" },
+      "700": { "value": "#b91c1c", "com.figma.variableId": "VariableID:6:356", "cssVar": "--uedp-red-700" },
+      "800": { "value": "#991b1b", "com.figma.variableId": "VariableID:3:149", "cssVar": "--uedp-red-800" },
+      "950": { "value": "#450a0a", "com.figma.variableId": "VariableID:3:151", "cssVar": "--uedp-red-950" },
+      "950-alt": { "value": "#450a0a", "com.figma.variableId": "VariableID:6:354", "cssVar": "--uedp-red-950-alt" }
+    },
+    "teal": {
+      "300": { "value": "#5eead4", "com.figma.variableId": "VariableID:6:335", "cssVar": "--uedp-teal-300" },
+      "950": { "value": "#102d30", "com.figma.variableId": "VariableID:45:101", "cssVar": "--uedp-teal-950" }
+    },
+    "purple": {
+      "700": { "value": "#6d28d9", "com.figma.variableId": "VariableID:3:280", "cssVar": "--uedp-purple-700" }
+    },
+    "indigo": {
+      "800": { "value": "#3730a3", "com.figma.variableId": "VariableID:3:270", "cssVar": "--uedp-indigo-800" }
+    },
+    "blue": {
+      "400": { "value": "#60a5fa", "com.figma.variableId": "VariableID:6:362", "cssVar": "--uedp-blue-400" }
+    },
+    "lime": {
+      "800": { "value": "#3f6212", "com.figma.variableId": "VariableID:3:193", "cssVar": "--uedp-lime-800" }
+    }
+  }
+}
