@@ -51,3 +51,6 @@ export type { AreaGraphProps } from './components/area-graph/AreaGraph';
 
 export { CautionBanner, Cautions } from './components/caution-banner/CautionBanner';
 export type { CautionBannerProps } from './components/caution-banner/CautionBanner';
+
+export { SidebarNav, Frame158, defaultSidebarItems } from './components/sidebar-nav/SidebarNav';
+export type { SidebarNavProps, SidebarNavItemData } from './components/sidebar-nav/SidebarNav';
