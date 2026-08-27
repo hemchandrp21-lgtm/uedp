@@ -24,3 +24,6 @@ export type { NumberIconProps } from './components/number-icon/NumberIcon';
 
 export { PercentageBadge } from './components/percentage-badge/PercentageBadge';
 export type { PercentageBadgeProps } from './components/percentage-badge/PercentageBadge';
+
+export { StockBadge } from './components/stock-badge/StockBadge';
+export type { StockBadgeProps } from './components/stock-badge/StockBadge';

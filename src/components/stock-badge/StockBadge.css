@@ -1,0 +1,60 @@
+.uedp-stock-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: var(--uedp-rounded-md, 8px);
+  font-family: var(--uedp-font-base, 'Inter', sans-serif);
+  font-weight: 600;
+  line-height: 1.2;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+  width: fit-content;
+}
+
+/* Sizes */
+.uedp-stock-badge--sm {
+  padding: 5px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+.uedp-stock-badge--md {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.uedp-stock-badge--lg {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+/* 1. Success / Green (In Stock) */
+.uedp-stock-badge--success {
+  background-color: #0c3325;
+  color: #34d399;
+}
+
+/* 2. Danger / Red (Out of Stock) */
+.uedp-stock-badge--danger {
+  background-color: #3b181e;
+  color: #f87171;
+}
+
+/* 3. Warning / Amber (Low Stock) */
+.uedp-stock-badge--warning {
+  background-color: #3d1c08;
+  color: #fbbf24;
+}
+
+/* 4. Muted / Slate */
+.uedp-stock-badge--muted {
+  background-color: #1e293b;
+  color: #94a3b8;
+}
+
+.uedp-stock-badge__label {
+  white-space: nowrap;
+}
