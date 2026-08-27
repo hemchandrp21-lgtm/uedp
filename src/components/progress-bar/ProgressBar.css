@@ -1,0 +1,66 @@
+.uedp-progress-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.uedp-progress-bar {
+  position: relative;
+  width: 100%;
+  height: 12px;
+  background-color: #f1f5f9;
+  border-radius: var(--uedp-rounded-full, 9999px);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Track color for slate variant */
+.uedp-progress-bar--slate {
+  background-color: #334155;
+}
+
+.uedp-progress-bar__fill {
+  height: 100%;
+  border-radius: var(--uedp-rounded-full, 9999px);
+  transition: width 0.3s ease-in-out;
+}
+
+/* 1. Green / Success */
+.uedp-progress-bar--success .uedp-progress-bar__fill {
+  background-color: #34d399;
+}
+
+/* 2. Red / Danger */
+.uedp-progress-bar--danger .uedp-progress-bar__fill {
+  background-color: #f87171;
+}
+
+/* 3. Yellow / Warning */
+.uedp-progress-bar--warning .uedp-progress-bar__fill {
+  background-color: #fbbf24;
+}
+
+/* 4. Blue */
+.uedp-progress-bar--blue .uedp-progress-bar__fill {
+  background-color: #60a5fa;
+}
+
+/* 5. Indigo */
+.uedp-progress-bar--indigo .uedp-progress-bar__fill {
+  background-color: #6366f1;
+}
+
+/* 6. Slate / Muted */
+.uedp-progress-bar--slate .uedp-progress-bar__fill {
+  background-color: #8c9bae;
+}
+
+.uedp-progress-bar__label {
+  font-family: var(--uedp-font-base, 'Inter', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  min-width: 40px;
+  text-align: right;
+}

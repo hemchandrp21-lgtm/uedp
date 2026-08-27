@@ -36,3 +36,6 @@ export type { SmartInsightCardProps } from './components/smart-insight-card/Smar
 
 export { MetricCard, Cards } from './components/metric-card/MetricCard';
 export type { MetricCardProps } from './components/metric-card/MetricCard';
+
+export { ProgressBar, Bar } from './components/progress-bar/ProgressBar';
+export type { ProgressBarProps } from './components/progress-bar/ProgressBar';
