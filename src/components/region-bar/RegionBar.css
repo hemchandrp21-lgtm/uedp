@@ -1,0 +1,40 @@
+.uedp-region-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 540px;
+  font-family: var(--uedp-font-base, 'Inter', sans-serif);
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.uedp-region-bar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.uedp-region-bar__name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #f1f5f9;
+}
+
+.uedp-region-bar__stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.uedp-region-bar__value {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.uedp-region-bar__progress-container {
+  width: 100%;
+}

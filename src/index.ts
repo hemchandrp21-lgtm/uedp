@@ -39,3 +39,6 @@ export type { MetricCardProps } from './components/metric-card/MetricCard';
 
 export { ProgressBar, Bar } from './components/progress-bar/ProgressBar';
 export type { ProgressBarProps } from './components/progress-bar/ProgressBar';
+
+export { RegionBar, Regions } from './components/region-bar/RegionBar';
+export type { RegionBarProps } from './components/region-bar/RegionBar';
