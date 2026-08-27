@@ -1,0 +1,35 @@
+.uedp-smart-insight-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 28px;
+  background-color: #1a2332;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--uedp-rounded-xl, 16px);
+  width: 100%;
+  max-width: 340px;
+  box-sizing: border-box;
+  font-family: var(--uedp-font-base, 'Inter', sans-serif);
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+}
+
+.uedp-smart-insight-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.uedp-smart-insight-card__badge-wrapper .uedp-stat-badge {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.uedp-smart-insight-card__description {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}

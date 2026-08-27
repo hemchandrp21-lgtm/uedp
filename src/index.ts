@@ -30,3 +30,6 @@ export type { StockBadgeProps } from './components/stock-badge/StockBadge';
 
 export { PercentageTag, Percentages } from './components/percentages/PercentageTag';
 export type { PercentageTagProps } from './components/percentages/PercentageTag';
+
+export { SmartInsightCard, SmartInsides } from './components/smart-insight-card/SmartInsightCard';
+export type { SmartInsightCardProps } from './components/smart-insight-card/SmartInsightCard';
