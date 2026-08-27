@@ -21,3 +21,6 @@ export type { MetricValueProps } from './components/metric-value/MetricValue';
 
 export { NumberIcon } from './components/number-icon/NumberIcon';
 export type { NumberIconProps } from './components/number-icon/NumberIcon';
+
+export { PercentageBadge } from './components/percentage-badge/PercentageBadge';
+export type { PercentageBadgeProps } from './components/percentage-badge/PercentageBadge';
