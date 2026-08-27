@@ -57,9 +57,13 @@ export type { RegionBarProps } from './components/graphs/region-bar/RegionBar';
 export { SparklineGraph, InsideGraphs } from './components/graphs/sparkline-graph/SparklineGraph';
 export type { SparklineGraphProps } from './components/graphs/sparkline-graph/SparklineGraph';
 
-export { AreaGraph, Graphs } from './components/graphs/area-graph/AreaGraph';
-export type { AreaGraphProps } from './components/graphs/area-graph/AreaGraph';
+export { AreaGraph, Graphs } from './components/area-graph/AreaGraph';
+export type { AreaGraphProps } from './components/area-graph/AreaGraph';
 
 // 6. Alerts
 export { CautionBanner, Cautions } from './components/alerts/caution-banner/CautionBanner';
 export type { CautionBannerProps } from './components/alerts/caution-banner/CautionBanner';
+
+// 7. Icons
+export { Icon } from './components/icons/Icon';
+export type { IconProps, IconName } from './components/icons/Icon';
