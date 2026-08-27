@@ -1,5 +1,5 @@
 /**
- * Google Analytics 4 (GA4) Utility Helper
+ * Google Analytics 4 (GA4) Utility Helper with DebugView Support
  * Stream Name: sales dashboard design system
  * Stream URL: https://uedp-x31b.vercel.app
  * Stream ID: 15510899234
@@ -15,8 +15,15 @@ declare global {
   }
 }
 
-/** Initialize GA4 script dynamically if not already injected */
-export const initGA = (measurementId: string = GA_MEASUREMENT_ID) => {
+/**
+ * Initialize GA4 script dynamically
+ * @param measurementId Target GA4 Measurement ID (Default: G-1P37KN4T26)
+ * @param debugMode Enables GA4 DebugView for real-time local debugging
+ */
+export const initGA = (
+  measurementId: string = GA_MEASUREMENT_ID,
+  debugMode: boolean = true
+) => {
   if (typeof window === 'undefined') return;
 
   if (!document.getElementById('ga-gtag-script')) {
@@ -33,6 +40,7 @@ export const initGA = (measurementId: string = GA_MEASUREMENT_ID) => {
     window.gtag('js', new Date());
     window.gtag('config', measurementId, {
       send_page_view: true,
+      debug_mode: debugMode,
     });
   }
 };
@@ -45,6 +53,7 @@ export const trackEvent = (
   if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
     window.gtag('event', eventName, {
       send_to: GA_MEASUREMENT_ID,
+      debug_mode: true,
       ...eventParams,
     });
   }

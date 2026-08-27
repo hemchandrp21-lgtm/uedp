@@ -8,7 +8,8 @@
   gtag('config', 'G-1P37KN4T26', {
     page_title: 'Sales Dashboard Design System Showcase',
     page_path: window.location.hash || window.location.pathname,
-    send_page_view: true
+    send_page_view: true,
+    debug_mode: true
   });
 
   // Track story route navigation dynamically
@@ -17,7 +18,8 @@
       gtag('event', 'page_view', {
         page_title: document.title || 'Design System Component',
         page_path: window.location.hash || window.location.pathname,
-        send_to: 'G-1P37KN4T26'
+        send_to: 'G-1P37KN4T26',
+        debug_mode: true
       });
     }
   }
