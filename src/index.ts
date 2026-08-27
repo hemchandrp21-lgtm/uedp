@@ -12,3 +12,6 @@ export type { StatusProps } from './components/status/Status';
 
 export { SegmentedControl } from './components/segmented-control/SegmentedControl';
 export type { SegmentedControlProps } from './components/segmented-control/SegmentedControl';
+
+export { IconBadge } from './components/icon-badge/IconBadge';
+export type { IconBadgeProps } from './components/icon-badge/IconBadge';
