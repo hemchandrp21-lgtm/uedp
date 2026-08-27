@@ -42,3 +42,6 @@ export type { ProgressBarProps } from './components/progress-bar/ProgressBar';
 
 export { RegionBar, Regions } from './components/region-bar/RegionBar';
 export type { RegionBarProps } from './components/region-bar/RegionBar';
+
+export { SparklineGraph, InsideGraphs } from './components/sparkline-graph/SparklineGraph';
+export type { SparklineGraphProps } from './components/sparkline-graph/SparklineGraph';
