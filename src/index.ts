@@ -45,3 +45,6 @@ export type { RegionBarProps } from './components/region-bar/RegionBar';
 
 export { SparklineGraph, InsideGraphs } from './components/sparkline-graph/SparklineGraph';
 export type { SparklineGraphProps } from './components/sparkline-graph/SparklineGraph';
+
+export { AreaGraph, Graphs } from './components/area-graph/AreaGraph';
+export type { AreaGraphProps } from './components/area-graph/AreaGraph';

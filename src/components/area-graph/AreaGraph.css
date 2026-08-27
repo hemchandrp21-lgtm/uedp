@@ -1,0 +1,74 @@
+.uedp-area-graph {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  overflow: hidden;
+  user-select: none;
+  border-radius: var(--uedp-rounded-lg, 12px);
+}
+
+.uedp-area-graph__svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.uedp-area-graph__solid-line {
+  fill: none;
+  stroke-width: 2.2;
+}
+
+.uedp-area-graph__dashed-line {
+  fill: none;
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+
+.uedp-area-graph__dot {
+  stroke-width: 1.5;
+  stroke: rgba(0, 0, 0, 0.4);
+}
+
+/* 1. Success / Green */
+.uedp-area-graph--success .uedp-area-graph__solid-line {
+  stroke: #34d399;
+}
+.uedp-area-graph--success .uedp-area-graph__dashed-line {
+  stroke: rgba(52, 211, 153, 0.45);
+}
+.uedp-area-graph--success .uedp-area-graph__dot {
+  fill: #34d399;
+}
+
+/* 2. Danger / Red */
+.uedp-area-graph--danger .uedp-area-graph__solid-line {
+  stroke: #f87171;
+}
+.uedp-area-graph--danger .uedp-area-graph__dashed-line {
+  stroke: rgba(248, 113, 113, 0.45);
+}
+.uedp-area-graph--danger .uedp-area-graph__dot {
+  fill: #f87171;
+}
+
+/* 3. Warning / Amber */
+.uedp-area-graph--warning .uedp-area-graph__solid-line {
+  stroke: #fbbf24;
+}
+.uedp-area-graph--warning .uedp-area-graph__dashed-line {
+  stroke: rgba(251, 191, 36, 0.45);
+}
+.uedp-area-graph--warning .uedp-area-graph__dot {
+  fill: #fbbf24;
+}
+
+/* 4. Slate / Muted */
+.uedp-area-graph--slate .uedp-area-graph__solid-line {
+  stroke: #8c9bae;
+}
+.uedp-area-graph--slate .uedp-area-graph__dashed-line {
+  stroke: rgba(140, 155, 174, 0.45);
+}
+.uedp-area-graph--slate .uedp-area-graph__dot {
+  fill: #cbd5e1;
+}
