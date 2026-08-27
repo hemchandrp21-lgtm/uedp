@@ -1,0 +1,68 @@
+.uedp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--uedp-rounded-full, 9999px);
+  font-family: var(--uedp-font-base, 'Inter', sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  user-select: none;
+}
+
+/* 1. Default / Dark Slate variant */
+.uedp-button--default {
+  background-color: #1e2638;
+  color: #94a3b8;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.uedp-button--default:hover {
+  background-color: #28334a;
+  color: #cbd5e1;
+}
+
+/* 2. Active / Primary Teal variant */
+.uedp-button--active {
+  background-color: #46ecc5;
+  color: #0b132b;
+}
+
+.uedp-button--active:hover {
+  background-color: #3bd9b4;
+  box-shadow: 0 0 12px rgba(70, 236, 197, 0.4);
+}
+
+/* 3. Active Glow variant (White ring & halo) */
+.uedp-button--active-glow {
+  background-color: #46ecc5;
+  color: #0b132b;
+  box-shadow: 0 0 0 2.5px #ffffff, 0 0 16px rgba(255, 255, 255, 0.6);
+}
+
+/* 4. Disabled variant */
+.uedp-button--disabled,
+.uedp-button:disabled {
+  background-color: #8c9bae;
+  color: #475569;
+  cursor: not-allowed;
+  opacity: 0.85;
+  box-shadow: none;
+}
+
+.uedp-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.uedp-button__label {
+  white-space: nowrap;
+}

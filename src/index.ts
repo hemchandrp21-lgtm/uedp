@@ -1,4 +1,2 @@
-// Design System Component Exports
-// Add your custom component exports here
-
-export {};
+export { Button } from './components/button/Button';
+export type { ButtonProps } from './components/button/Button';
