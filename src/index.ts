@@ -9,3 +9,6 @@ export type { StatBadgeProps } from './components/stat-badge/StatBadge';
 
 export { Status } from './components/status/Status';
 export type { StatusProps } from './components/status/Status';
+
+export { SegmentedControl } from './components/segmented-control/SegmentedControl';
+export type { SegmentedControlProps } from './components/segmented-control/SegmentedControl';
