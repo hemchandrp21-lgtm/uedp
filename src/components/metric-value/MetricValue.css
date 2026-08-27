@@ -1,0 +1,56 @@
+.uedp-metric-value {
+  display: inline-block;
+  font-family: var(--uedp-font-base, 'Inter', sans-serif);
+  line-height: 1.2;
+  user-select: none;
+  letter-spacing: -0.01em;
+}
+
+/* Sizes */
+.uedp-metric-value--sm {
+  font-size: 18px;
+}
+
+.uedp-metric-value--md {
+  font-size: 24px;
+}
+
+.uedp-metric-value--lg {
+  font-size: 32px;
+}
+
+/* 1. Negative (- 123k) */
+.uedp-metric-value--negative {
+  color: #f87171;
+  font-weight: 600;
+}
+
+/* 2. Positive (+ 123k) */
+.uedp-metric-value--positive {
+  color: #34d399;
+  font-weight: 600;
+}
+
+/* 3. Currency Primary (₹123k white) */
+.uedp-metric-value--currency {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* 4. Muted / Slate (123k gray) */
+.uedp-metric-value--muted {
+  color: #475569;
+  font-weight: 500;
+}
+
+/* 5. Warning / Amber (₹123k yellow) */
+.uedp-metric-value--warning {
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+/* 6. Indigo / Blue (₹123k indigo) */
+.uedp-metric-value--indigo {
+  color: #4f46e5;
+  font-weight: 700;
+}
