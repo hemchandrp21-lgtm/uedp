@@ -1,0 +1,85 @@
+.uedp-nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 260px;
+  min-height: 44px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  font-family: var(--uedp-font-base, 'Inter', sans-serif);
+}
+
+/* Left vertical active pill bar */
+.uedp-nav-item__indicator {
+  width: 4px;
+  height: 24px;
+  background-color: #00e699;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* Inner container box */
+.uedp-nav-item__content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 1. Active State */
+.uedp-nav-item--active .uedp-nav-item__content {
+  background-color: #0d2826;
+  color: #00e699;
+}
+
+.uedp-nav-item--active .uedp-nav-item__icon {
+  color: #00e699;
+}
+
+/* 2. Default State */
+.uedp-nav-item--default .uedp-nav-item__content {
+  background-color: transparent;
+  color: #94a3b8;
+}
+
+.uedp-nav-item--default .uedp-nav-item__icon {
+  color: #94a3b8;
+}
+
+.uedp-nav-item--default:hover .uedp-nav-item__content {
+  color: #00e699;
+}
+
+.uedp-nav-item--default:hover .uedp-nav-item__icon {
+  color: #00e699;
+}
+
+/* 3. Hover / Highlighted State */
+.uedp-nav-item--hover .uedp-nav-item__content {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #00e699;
+}
+
+.uedp-nav-item--hover .uedp-nav-item__icon {
+  color: #00e699;
+}
+
+.uedp-nav-item__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color 0.2s ease-in-out;
+}
+
+.uedp-nav-item__label {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+}
