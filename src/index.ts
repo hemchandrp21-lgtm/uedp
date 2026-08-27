@@ -33,3 +33,6 @@ export type { PercentageTagProps } from './components/percentages/PercentageTag'
 
 export { SmartInsightCard, SmartInsides } from './components/smart-insight-card/SmartInsightCard';
 export type { SmartInsightCardProps } from './components/smart-insight-card/SmartInsightCard';
+
+export { MetricCard, Cards } from './components/metric-card/MetricCard';
+export type { MetricCardProps } from './components/metric-card/MetricCard';
