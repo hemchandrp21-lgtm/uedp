@@ -1,0 +1,46 @@
+.uedp-stat-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  font-family: var(--uedp-font-base, 'Inter', sans-serif);
+  user-select: none;
+}
+
+.uedp-stat-badge__subtitle {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.uedp-stat-badge__title {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 32px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* 1. Success / Green variant */
+.uedp-stat-badge--success {
+  color: #34d399;
+}
+
+/* 2. Danger / Red variant */
+.uedp-stat-badge--danger {
+  color: #f87171;
+}
+
+/* 3. Warning / Amber variant */
+.uedp-stat-badge--warning {
+  color: #fbbf24;
+}
+
+/* 4. Muted / Slate variant */
+.uedp-stat-badge--muted {
+  color: #475569;
+}

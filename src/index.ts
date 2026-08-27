@@ -3,3 +3,6 @@ export type { ButtonProps } from './components/button/Button';
 
 export { NavItem } from './components/nav-item/NavItem';
 export type { NavItemProps } from './components/nav-item/NavItem';
+
+export { StatBadge } from './components/stat-badge/StatBadge';
+export type { StatBadgeProps } from './components/stat-badge/StatBadge';
