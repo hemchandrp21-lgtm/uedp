@@ -54,3 +54,6 @@ export type { CautionBannerProps } from './components/caution-banner/CautionBann
 
 export { SidebarNav, Frame158, defaultSidebarItems } from './components/sidebar-nav/SidebarNav';
 export type { SidebarNavProps, SidebarNavItemData } from './components/sidebar-nav/SidebarNav';
+
+export { TopNavBar, TopNav } from './components/top-nav-bar/TopNavBar';
+export type { TopNavBarProps } from './components/top-nav-bar/TopNavBar';
