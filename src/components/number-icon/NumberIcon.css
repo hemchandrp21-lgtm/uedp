@@ -1,0 +1,67 @@
+.uedp-number-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--uedp-font-base, 'Inter', sans-serif);
+  font-weight: 700;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+  flex-shrink: 0;
+}
+
+/* Size Variants */
+.uedp-number-icon--sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.uedp-number-icon--md {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.uedp-number-icon--lg {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  font-size: 22px;
+}
+
+/* 1. Badge Variant (Top in Figma) */
+.uedp-number-icon--badge.uedp-number-icon--amber {
+  background-color: #291e14;
+  color: #fbbf24;
+}
+
+.uedp-number-icon--badge.uedp-number-icon--green {
+  background-color: #0c3325;
+  color: #34d399;
+}
+
+.uedp-number-icon--badge.uedp-number-icon--red {
+  background-color: #3b181e;
+  color: #f87171;
+}
+
+.uedp-number-icon--badge.uedp-number-icon--indigo {
+  background-color: #1e1b4b;
+  color: #818cf8;
+}
+
+.uedp-number-icon--badge.uedp-number-icon--slate {
+  background-color: #1e293b;
+  color: #94a3b8;
+}
+
+/* 2. Plain Variant (Bottom in Figma) */
+.uedp-number-icon--plain {
+  background-color: transparent;
+  color: #94a3b8;
+  width: auto;
+  height: auto;
+  padding: 4px;
+}

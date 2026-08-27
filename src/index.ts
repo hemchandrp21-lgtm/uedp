@@ -18,3 +18,6 @@ export type { IconBadgeProps } from './components/icon-badge/IconBadge';
 
 export { MetricValue } from './components/metric-value/MetricValue';
 export type { MetricValueProps } from './components/metric-value/MetricValue';
+
+export { NumberIcon } from './components/number-icon/NumberIcon';
+export type { NumberIconProps } from './components/number-icon/NumberIcon';
