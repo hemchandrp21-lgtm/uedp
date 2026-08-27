@@ -1,0 +1,70 @@
+.uedp-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: var(--uedp-rounded-full, 9999px);
+  font-family: var(--uedp-font-base, 'Inter', sans-serif);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  border: 1.5px solid transparent;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+  width: fit-content;
+}
+
+.uedp-status__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.uedp-status__label {
+  white-space: nowrap;
+}
+
+/* 1. Green / Success variant */
+.uedp-status--success {
+  background-color: #062b1b;
+  border-color: #10b981;
+  color: #34d399;
+}
+
+.uedp-status--success .uedp-status__dot {
+  background-color: #34d399;
+}
+
+/* 2. Red / Danger variant */
+.uedp-status--danger {
+  background-color: #3b0d0d;
+  border-color: #ef4444;
+  color: #f87171;
+}
+
+.uedp-status--danger .uedp-status__dot {
+  background-color: #f87171;
+}
+
+/* 3. Amber / Warning variant */
+.uedp-status--warning {
+  background-color: #361c08;
+  border-color: #d97706;
+  color: #d97706;
+}
+
+.uedp-status--warning .uedp-status__dot {
+  background-color: #d97706;
+}
+
+/* 4. Muted / Slate variant */
+.uedp-status--muted {
+  background-color: #8c9bae;
+  border-color: #64748b;
+  color: #475569;
+}
+
+.uedp-status--muted .uedp-status__dot {
+  background-color: #475569;
+}

@@ -6,3 +6,6 @@ export type { NavItemProps } from './components/nav-item/NavItem';
 
 export { StatBadge } from './components/stat-badge/StatBadge';
 export type { StatBadgeProps } from './components/stat-badge/StatBadge';
+
+export { Status } from './components/status/Status';
+export type { StatusProps } from './components/status/Status';
