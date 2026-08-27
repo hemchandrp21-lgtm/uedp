@@ -7,6 +7,12 @@
   font-family: var(--uedp-font-base, 'Inter', sans-serif);
   user-select: none;
   box-sizing: border-box;
+  animation: uedp-fade-in-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.uedp-region-bar:hover {
+  transform: translateX(4px);
 }
 
 .uedp-region-bar__header {
@@ -20,6 +26,11 @@
   font-size: 16px;
   font-weight: 500;
   color: #f1f5f9;
+  transition: color 0.2s ease;
+}
+
+.uedp-region-bar:hover .uedp-region-bar__name {
+  color: #ffffff;
 }
 
 .uedp-region-bar__stats {
@@ -33,6 +44,11 @@
   font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.01em;
+  transition: transform 0.2s ease;
+}
+
+.uedp-region-bar:hover .uedp-region-bar__value {
+  transform: scale(1.04);
 }
 
 .uedp-region-bar__progress-container {

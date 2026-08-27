@@ -10,7 +10,15 @@
   user-select: none;
   box-sizing: border-box;
   width: 100%;
-  transition: all 0.2s ease-in-out;
+  animation: uedp-fade-in-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.uedp-caution-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .uedp-caution-banner__left {
@@ -26,6 +34,11 @@
   justify-content: center;
   flex-shrink: 0;
   margin-top: 2px;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.uedp-caution-banner:hover .uedp-caution-banner__icon {
+  transform: scale(1.18);
 }
 
 .uedp-caution-banner__content {
@@ -56,11 +69,15 @@
   white-space: nowrap;
   cursor: pointer;
   flex-shrink: 0;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease;
 }
 
-.uedp-caution-banner__action:hover {
-  opacity: 0.8;
+.uedp-caution-banner__arrow {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.uedp-caution-banner__action:hover .uedp-caution-banner__arrow {
+  transform: translateX(4px);
 }
 
 /* 1. Warning / Amber Variant */

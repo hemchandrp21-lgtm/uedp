@@ -11,6 +11,13 @@
   box-sizing: border-box;
   font-family: var(--uedp-font-base, 'Inter', sans-serif);
   user-select: none;
+  animation: uedp-fade-in-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.uedp-top-nav-bar:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .uedp-top-nav-bar__left {
@@ -53,12 +60,21 @@
   border-radius: 50%;
   cursor: pointer;
   color: #ffffff;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   outline: none;
 }
 
 .uedp-top-nav-bar__bell-btn:hover {
   background-color: rgba(255, 255, 255, 0.08);
+  transform: scale(1.1);
+}
+
+.uedp-top-nav-bar__bell-icon {
+  transition: transform 0.2s ease;
+}
+
+.uedp-top-nav-bar__bell-btn:hover .uedp-top-nav-bar__bell-icon {
+  transform: rotate(15deg);
 }
 
 .uedp-top-nav-bar__unread-badge {
@@ -70,4 +86,5 @@
   background-color: #ef4444;
   border: 1.5px solid #0b1329;
   border-radius: 50%;
+  animation: uedp-dot-pulse 2s infinite ease-in-out;
 }

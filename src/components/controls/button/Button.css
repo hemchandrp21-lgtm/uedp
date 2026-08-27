@@ -11,9 +11,21 @@
   line-height: 20px;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
   outline: none;
   user-select: none;
+}
+
+.uedp-button:hover {
+  transform: translateY(-2px);
+}
+
+.uedp-button:active {
+  transform: translateY(0) scale(0.97);
 }
 
 /* 1. Default / Dark Slate variant */
@@ -26,6 +38,8 @@
 .uedp-button--default:hover {
   background-color: #28334a;
   color: #cbd5e1;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 /* 2. Active / Primary Teal variant */
@@ -36,7 +50,7 @@
 
 .uedp-button--active:hover {
   background-color: #3bd9b4;
-  box-shadow: 0 0 12px rgba(70, 236, 197, 0.4);
+  box-shadow: 0 4px 16px rgba(70, 236, 197, 0.45);
 }
 
 /* 3. Active Glow variant (White ring & halo) */
@@ -44,6 +58,7 @@
   background-color: #46ecc5;
   color: #0b132b;
   box-shadow: 0 0 0 2.5px #ffffff, 0 0 16px rgba(255, 255, 255, 0.6);
+  animation: uedp-pulse-glow 2.5s infinite;
 }
 
 /* 4. Disabled variant */
@@ -54,6 +69,7 @@
   cursor: not-allowed;
   opacity: 0.85;
   box-shadow: none;
+  transform: none !important;
 }
 
 .uedp-button__icon {
@@ -61,6 +77,11 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.uedp-button:hover .uedp-button__icon {
+  transform: scale(1.1);
 }
 
 .uedp-button__label {

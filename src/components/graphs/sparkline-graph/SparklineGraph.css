@@ -4,6 +4,12 @@
   max-width: 360px;
   overflow: hidden;
   user-select: none;
+  animation: uedp-fade-in-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.uedp-sparkline-graph:hover {
+  transform: scale(1.02);
 }
 
 .uedp-sparkline-graph__svg {
@@ -12,9 +18,23 @@
   display: block;
 }
 
+.uedp-sparkline-graph__area {
+  transition: opacity 0.25s ease, fill 0.25s ease;
+}
+
+.uedp-sparkline-graph:hover .uedp-sparkline-graph__area {
+  opacity: 0.9;
+}
+
 .uedp-sparkline-graph__line {
   fill: none;
   stroke-width: 2;
+  transition: stroke-width 0.2s ease, filter 0.2s ease;
+}
+
+.uedp-sparkline-graph:hover .uedp-sparkline-graph__line {
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px currentColor);
 }
 
 /* 1. Red / Danger Variant */

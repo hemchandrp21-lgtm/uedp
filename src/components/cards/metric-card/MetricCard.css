@@ -12,12 +12,16 @@
   overflow: hidden;
   font-family: var(--uedp-font-base, 'Inter', sans-serif);
   user-select: none;
-  transition: all 0.2s ease-in-out;
+  animation: uedp-fade-in-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
 }
 
 .uedp-metric-card:hover {
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
 }
 
 .uedp-metric-card__header {
@@ -45,6 +49,11 @@
   color: #ffffff;
   line-height: 1.1;
   letter-spacing: -0.02em;
+  transition: transform 0.2s ease;
+}
+
+.uedp-metric-card:hover .uedp-metric-card__value {
+  transform: scale(1.02);
 }
 
 .uedp-metric-card__trend-row {
@@ -73,4 +82,9 @@
   width: 100%;
   height: 100%;
   display: block;
+  transition: opacity 0.25s ease, filter 0.25s ease;
+}
+
+.uedp-metric-card:hover .uedp-metric-card__sparkline {
+  filter: brightness(1.15);
 }

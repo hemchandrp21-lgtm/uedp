@@ -5,6 +5,13 @@
   overflow: hidden;
   user-select: none;
   border-radius: var(--uedp-rounded-lg, 12px);
+  animation: uedp-fade-in-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.uedp-area-graph:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .uedp-area-graph__svg {
@@ -16,6 +23,12 @@
 .uedp-area-graph__solid-line {
   fill: none;
   stroke-width: 2.2;
+  transition: stroke-width 0.2s ease, filter 0.2s ease;
+}
+
+.uedp-area-graph:hover .uedp-area-graph__solid-line {
+  stroke-width: 2.8;
+  filter: drop-shadow(0 0 6px currentColor);
 }
 
 .uedp-area-graph__dashed-line {
@@ -27,6 +40,12 @@
 .uedp-area-graph__dot {
   stroke-width: 1.5;
   stroke: rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), fill 0.2s ease;
+  transform-origin: center;
+}
+
+.uedp-area-graph:hover .uedp-area-graph__dot {
+  transform: scale(1.4);
 }
 
 /* 1. Success / Green */
