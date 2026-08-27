@@ -1,59 +1,65 @@
-export { Button } from './components/button/Button';
-export type { ButtonProps } from './components/button/Button';
+// 1. Controls
+export { Button } from './components/controls/button/Button';
+export type { ButtonProps } from './components/controls/button/Button';
 
-export { NavItem } from './components/nav-item/NavItem';
-export type { NavItemProps } from './components/nav-item/NavItem';
+export { SegmentedControl } from './components/controls/segmented-control/SegmentedControl';
+export type { SegmentedControlProps } from './components/controls/segmented-control/SegmentedControl';
 
-export { StatBadge } from './components/stat-badge/StatBadge';
-export type { StatBadgeProps } from './components/stat-badge/StatBadge';
+export { MetricValue } from './components/controls/metric-value/MetricValue';
+export type { MetricValueProps } from './components/controls/metric-value/MetricValue';
 
-export { Status } from './components/status/Status';
-export type { StatusProps } from './components/status/Status';
+// 2. Navigation
+export { NavItem } from './components/navigation/nav-item/NavItem';
+export type { NavItemProps } from './components/navigation/nav-item/NavItem';
 
-export { SegmentedControl } from './components/segmented-control/SegmentedControl';
-export type { SegmentedControlProps } from './components/segmented-control/SegmentedControl';
+export { SidebarNav, Frame158, defaultSidebarItems } from './components/navigation/sidebar-nav/SidebarNav';
+export type { SidebarNavProps, SidebarNavItemData } from './components/navigation/sidebar-nav/SidebarNav';
 
-export { IconBadge } from './components/icon-badge/IconBadge';
-export type { IconBadgeProps } from './components/icon-badge/IconBadge';
+export { TopNavBar, TopNav } from './components/navigation/top-nav-bar/TopNavBar';
+export type { TopNavBarProps } from './components/navigation/top-nav-bar/TopNavBar';
 
-export { MetricValue } from './components/metric-value/MetricValue';
-export type { MetricValueProps } from './components/metric-value/MetricValue';
+// 3. Badges & Tags
+export { StatBadge } from './components/badges/stat-badge/StatBadge';
+export type { StatBadgeProps } from './components/badges/stat-badge/StatBadge';
 
-export { NumberIcon } from './components/number-icon/NumberIcon';
-export type { NumberIconProps } from './components/number-icon/NumberIcon';
+export { Status } from './components/badges/status/Status';
+export type { StatusProps } from './components/badges/status/Status';
 
-export { PercentageBadge } from './components/percentage-badge/PercentageBadge';
-export type { PercentageBadgeProps } from './components/percentage-badge/PercentageBadge';
+export { IconBadge } from './components/badges/icon-badge/IconBadge';
+export type { IconBadgeProps } from './components/badges/icon-badge/IconBadge';
 
-export { StockBadge } from './components/stock-badge/StockBadge';
-export type { StockBadgeProps } from './components/stock-badge/StockBadge';
+export { NumberIcon } from './components/badges/number-icon/NumberIcon';
+export type { NumberIconProps } from './components/badges/number-icon/NumberIcon';
 
-export { PercentageTag, Percentages } from './components/percentages/PercentageTag';
-export type { PercentageTagProps } from './components/percentages/PercentageTag';
+export { PercentageBadge } from './components/badges/percentage-badge/PercentageBadge';
+export type { PercentageBadgeProps } from './components/badges/percentage-badge/PercentageBadge';
 
-export { SmartInsightCard, SmartInsides } from './components/smart-insight-card/SmartInsightCard';
-export type { SmartInsightCardProps } from './components/smart-insight-card/SmartInsightCard';
+export { StockBadge } from './components/badges/stock-badge/StockBadge';
+export type { StockBadgeProps } from './components/badges/stock-badge/StockBadge';
 
-export { MetricCard, Cards } from './components/metric-card/MetricCard';
-export type { MetricCardProps } from './components/metric-card/MetricCard';
+export { PercentageTag, Percentages } from './components/badges/percentages/PercentageTag';
+export type { PercentageTagProps } from './components/badges/percentages/PercentageTag';
 
-export { ProgressBar, Bar } from './components/progress-bar/ProgressBar';
-export type { ProgressBarProps } from './components/progress-bar/ProgressBar';
+// 4. Cards
+export { SmartInsightCard, SmartInsides } from './components/cards/smart-insight-card/SmartInsightCard';
+export type { SmartInsightCardProps } from './components/cards/smart-insight-card/SmartInsightCard';
 
-export { RegionBar, Regions } from './components/region-bar/RegionBar';
-export type { RegionBarProps } from './components/region-bar/RegionBar';
+export { MetricCard, Cards } from './components/cards/metric-card/MetricCard';
+export type { MetricCardProps } from './components/cards/metric-card/MetricCard';
 
-export { SparklineGraph, InsideGraphs } from './components/sparkline-graph/SparklineGraph';
-export type { SparklineGraphProps } from './components/sparkline-graph/SparklineGraph';
+// 5. Graphs & Data Visualizations
+export { ProgressBar, Bar } from './components/graphs/progress-bar/ProgressBar';
+export type { ProgressBarProps } from './components/graphs/progress-bar/ProgressBar';
 
-export { AreaGraph, Graphs } from './components/area-graph/AreaGraph';
-export type { AreaGraphProps } from './components/area-graph/AreaGraph';
+export { RegionBar, Regions } from './components/graphs/region-bar/RegionBar';
+export type { RegionBarProps } from './components/graphs/region-bar/RegionBar';
 
-export { CautionBanner, Cautions } from './components/caution-banner/CautionBanner';
-export type { CautionBannerProps } from './components/caution-banner/CautionBanner';
+export { SparklineGraph, InsideGraphs } from './components/graphs/sparkline-graph/SparklineGraph';
+export type { SparklineGraphProps } from './components/graphs/sparkline-graph/SparklineGraph';
 
-export { SidebarNav, Frame158, defaultSidebarItems } from './components/sidebar-nav/SidebarNav';
-export type { SidebarNavProps, SidebarNavItemData } from './components/sidebar-nav/SidebarNav';
+export { AreaGraph, Graphs } from './components/graphs/area-graph/AreaGraph';
+export type { AreaGraphProps } from './components/graphs/area-graph/AreaGraph';
 
-export { TopNavBar, TopNav } from './components/top-nav-bar/TopNavBar';
-export type { TopNavBarProps } from './components/top-nav-bar/TopNavBar';
+// 6. Alerts
+export { CautionBanner, Cautions } from './components/alerts/caution-banner/CautionBanner';
+export type { CautionBannerProps } from './components/alerts/caution-banner/CautionBanner';
