@@ -1,0 +1,76 @@
+.uedp-percentage-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: var(--uedp-rounded-xl, 14px);
+  font-family: var(--uedp-font-base, 'Inter', sans-serif);
+  font-weight: 700;
+  line-height: 1.2;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+  width: fit-content;
+}
+
+/* Sizes */
+.uedp-percentage-tag--sm {
+  padding: 6px 14px;
+  font-size: 14px;
+  border-radius: 10px;
+  gap: 6px;
+}
+
+.uedp-percentage-tag--md {
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 14px;
+  gap: 10px;
+}
+
+.uedp-percentage-tag--lg {
+  padding: 14px 26px;
+  font-size: 24px;
+  border-radius: 16px;
+  gap: 12px;
+}
+
+/* 1. Green / Success Variant */
+.uedp-percentage-tag--success {
+  background-color: #0c2e26;
+  color: #34d399;
+}
+
+/* 2. Red / Danger Variant */
+.uedp-percentage-tag--danger {
+  background-color: #3b1016;
+  color: #f87171;
+}
+
+/* 3. Amber / Warning Variant */
+.uedp-percentage-tag--warning {
+  background-color: #381806;
+  color: #fbbf24;
+}
+
+/* 4. White / Neutral Variant */
+.uedp-percentage-tag--neutral {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+}
+
+.uedp-percentage-tag__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.uedp-percentage-tag__arrow-up {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.uedp-percentage-tag__value {
+  white-space: nowrap;
+}

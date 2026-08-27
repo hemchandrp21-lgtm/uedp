@@ -27,3 +27,6 @@ export type { PercentageBadgeProps } from './components/percentage-badge/Percent
 
 export { StockBadge } from './components/stock-badge/StockBadge';
 export type { StockBadgeProps } from './components/stock-badge/StockBadge';
+
+export { PercentageTag, Percentages } from './components/percentages/PercentageTag';
+export type { PercentageTagProps } from './components/percentages/PercentageTag';
