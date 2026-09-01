@@ -1,13 +1,8 @@
 import type { Preview } from '@storybook/react';
-import { themes } from '@storybook/theming';
 import '../src/styles/figma-tokens.css';
 
 const preview: Preview = {
   parameters: {
-    layout: 'centered',
-    docs: {
-      theme: themes.dark,
-    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

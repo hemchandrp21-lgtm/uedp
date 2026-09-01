@@ -1,4 +1,4 @@
-<!-- Google Fonts & Tracking for Design System Showcase -->
+<!-- Google Analytics 4 (GA4) Tracking Snippet for Sales Dashboard Design System -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1P37KN4T26"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -12,6 +12,7 @@
     debug_mode: true
   });
 
+  // Track story route navigation dynamically
   function trackStoryNavigation() {
     if (typeof gtag === 'function') {
       gtag('event', 'page_view', {
@@ -28,92 +29,4 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #020617 !important;
-  }
-
-  /* Ultra-modern ambient glow mesh background */
-  body {
-    background-color: #020617 !important;
-    background-image: 
-      radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(52, 211, 153, 0.12) 0px, transparent 50%),
-      radial-gradient(at 50% 50%, rgba(124, 58, 237, 0.06) 0px, transparent 50%);
-    background-attachment: fixed;
-    color: #f8fafc !important;
-  }
-
-  #storybook-root {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  /* Center canvas ONLY for story views, NOT for Docs mode */
-  #storybook-root:not(:has(.sbdocs)) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 2rem;
-  }
-
-  /* Force Docs mode to stick immediately to the top of screen without scroll requirement */
-  body:has(.sbdocs) #storybook-root,
-  #storybook-root:has(.sbdocs),
-  .sbdocs-wrapper,
-  .sbdocs,
-  .docs-page {
-    display: block !important;
-    min-height: 0 !important;
-    height: auto !important;
-    margin-top: 0 !important;
-    padding-top: 0.5rem !important;
-    vertical-align: top !important;
-  }
-
-  /* Docs mode styling & text visibility fixes */
-  .sbdocs, .sbdocs-wrapper, .docs-page {
-    background: transparent !important;
-    color: #f8fafc !important;
-    width: 100% !important;
-    max-width: 1100px !important;
-    margin: 0 auto !important;
-    padding: 1rem 2rem 2rem 2rem !important;
-    box-sizing: border-box !important;
-  }
-
-  .sbdocs h1, .sbdocs h2, .sbdocs h3, .sbdocs h4, .sbdocs-title, .sbdocs-subtitle {
-    color: #f8fafc !important;
-    font-family: 'Outfit', sans-serif !important;
-    margin-top: 0.25rem !important;
-    padding-top: 0 !important;
-  }
-
-  .sbdocs p, .sbdocs span, .sbdocs li, .sbdocs td, .sbdocs th, .sbdocs label {
-    color: #cbd5e1 !important;
-  }
-
-  .sbdocs-table, table, .docblock-argstable {
-    background: #0f172a !important;
-    border: 1px solid #1e293b !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-    color: #f8fafc !important;
-  }
-
-  .sbdocs-table th, table th, .docblock-argstable th {
-    background: #1e293b !important;
-    color: #38bdf8 !important;
-  }
-
-  .sbdocs-table td, table td, .docblock-argstable td {
-    border-bottom: 1px solid #1e293b !important;
-    color: #e2e8f0 !important;
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
