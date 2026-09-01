@@ -1,4 +1,4 @@
-<!-- Material Design 3 Canvas & Docs Styles -->
+<!-- Google Analytics 4 (GA4) Tracking Snippet for Sales Dashboard Design System -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1P37KN4T26"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -12,6 +12,7 @@
     debug_mode: true
   });
 
+  // Track story route navigation dynamically
   function trackStoryNavigation() {
     if (typeof gtag === 'function') {
       gtag('event', 'page_view', {
@@ -28,117 +29,4 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    font-family: 'Roboto', 'Inter', sans-serif;
-    background-color: #121318 !important;
-    color: #e6e1e5 !important;
-  }
-
-  #storybook-root {
-    width: 100%;
-    margin: 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box;
-  }
-
-  /* Single Story View: Center vertically & horizontally */
-  body:not(.sb-docs-page):not(.sb-docs-story) #storybook-root {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 2rem !important;
-    box-sizing: border-box;
-  }
-
-  /* Embedded Story Inside Docs Mode: Auto height, no 100vh overflow */
-  body.sb-docs-story #storybook-root,
-  body.sb-docs-page #storybook-root,
-  .sb-docs-story #storybook-root,
-  .docblock-canvas #storybook-root {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    min-height: auto !important;
-    height: auto !important;
-    padding: 1.5rem !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Docs Page Layout: Remove ALL top blank space */
-  .sbdocs,
-  .sbdocs-wrapper,
-  .sbdocs-content,
-  .sbdocs-header,
-  .docs-page,
-  [class*="sbdocs"] {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-
-  .sbdocs-wrapper {
-    background: transparent !important;
-    color: #e6e1e5 !important;
-    width: 100% !important;
-    max-width: 1100px !important;
-    margin: 0 auto !important;
-    padding: 0.5rem 2rem 2rem 2rem !important;
-    box-sizing: border-box !important;
-    min-height: 0 !important;
-  }
-
-  .sbdocs h1, .sbdocs h2, .sbdocs h3, .sbdocs h4, .sbdocs-title, .sbdocs-subtitle {
-    color: #e6e1e5 !important;
-    font-family: 'Outfit', 'Roboto', sans-serif !important;
-    margin-top: 0 !important;
-    padding-top: 0.25rem !important;
-  }
-
-  .sbdocs p, .sbdocs span, .sbdocs li, .sbdocs td, .sbdocs th, .sbdocs label {
-    color: #c4c7c5 !important;
-  }
-
-  /* M3 Surface Cards for Story Preview Block in Docs Mode */
-  .docblock-canvas, .docs-story {
-    background: #1b1b21 !important;
-    border: 1px solid #49454f !important;
-    border-radius: 16px !important;
-    overflow: hidden !important;
-    margin: 1rem 0 1.5rem 0 !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
-  }
-
-  /* M3 Toolbar Header inside Docs Story Canvas */
-  .docblock-canvas [role="toolbar"],
-  .docblock-canvas .st-toolbar {
-    background: #282930 !important;
-    border-bottom: 1px solid #49454f !important;
-    color: #e6e1e5 !important;
-  }
-
-  /* M3 Surface Container Tables & ArgTypes */
-  .sbdocs-table, table, .docblock-argstable {
-    background: #1b1b21 !important;
-    border: 1px solid #49454f !important;
-    border-radius: 16px !important;
-    overflow: hidden !important;
-    color: #e6e1e5 !important;
-  }
-
-  .sbdocs-table th, table th, .docblock-argstable th {
-    background: #282930 !important;
-    color: #d0bcff !important;
-    font-weight: 600 !important;
-  }
-
-  .sbdocs-table td, table td, .docblock-argstable td {
-    border-bottom: 1px solid #49454f !important;
-    color: #e6e1e5 !important;
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
