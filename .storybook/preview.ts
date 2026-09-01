@@ -3,6 +3,7 @@ import '../src/styles/figma-tokens.css';
 
 const preview: Preview = {
   parameters: {
+    layout: 'centered',
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -10,11 +11,12 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: 'dark',
+      default: 'light',
       values: [
+        { name: 'light', value: '#ffffff' },
+        { name: 'slate-50', value: '#f8fafc' },
         { name: 'dark', value: '#020617' },
-        { name: 'slate-900', value: '#0f172a' },
-        { name: 'light', value: '#ffffff' }
+        { name: 'slate-900', value: '#0f172a' }
       ]
     }
   },

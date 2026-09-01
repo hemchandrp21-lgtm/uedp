@@ -41,7 +41,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
       </div>
 
       <div className="uedp-metric-card__trend-row">
-        <PercentageTag variant={variant} value={percentage} size="sm" />
+        <PercentageTag variant={variant === 'muted' ? 'neutral' : variant} value={percentage} size="sm" />
         <span className="uedp-metric-card__comparison">{comparisonText}</span>
       </div>
 

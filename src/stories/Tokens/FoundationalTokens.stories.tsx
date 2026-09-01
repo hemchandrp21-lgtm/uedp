@@ -16,7 +16,7 @@ export const RadiiAndSpacing = () => {
   const { spacing, radii, typography } = foundationalTokens.tokens;
 
   return (
-    <div style={{ padding: '24px', fontFamily: 'Inter, sans-serif', color: '#f8fafc', background: '#020617', borderRadius: '16px' }}>
+    <div style={{ padding: '24px', fontFamily: 'Inter, sans-serif', color: '#f8fafc', background: '#020617', borderRadius: '16px', width: '100%', maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
       <h1 style={{ fontFamily: 'Outfit, sans-serif', fontSize: '28px', marginBottom: '8px', color: '#38bdf8' }}>
         Foundational Tokens
       </h1>

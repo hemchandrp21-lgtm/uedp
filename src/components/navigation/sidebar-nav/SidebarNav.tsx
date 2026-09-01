@@ -27,7 +27,7 @@ export const defaultSidebarItems: SidebarNavItemData[] = [
   { key: 'settings', label: 'Settings', icon: <Settings size={20} /> },
 ];
 
-export interface SidebarNavProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SidebarNavProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
   /** Currently active item key matching Figma Frame 158 (node-id 173-2792) */
   activeItem?: string;
   /** Navigation item selection callback */
