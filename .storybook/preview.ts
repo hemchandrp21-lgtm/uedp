@@ -11,12 +11,11 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: 'light',
+      default: 'dark',
       values: [
-        { name: 'light', value: '#ffffff' },
-        { name: 'slate-50', value: '#f8fafc' },
         { name: 'dark', value: '#020617' },
-        { name: 'slate-900', value: '#0f172a' }
+        { name: 'slate-900', value: '#0f172a' },
+        { name: 'light', value: '#ffffff' }
       ]
     }
   },

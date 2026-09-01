@@ -1,42 +1,42 @@
 import { create } from '@storybook/theming';
 
 export default create({
-  base: 'light',
+  base: 'dark',
 
   // Typography
   fontBase: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-  fontCode: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+  fontCode: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
 
   // Branding
-  brandTitle: 'UEDP Sales Dashboard Design System',
+  brandTitle: '❖ UEDP Design System',
   brandUrl: './',
   brandTarget: '_self',
 
   // Color palette
-  colorPrimary: '#059669',
-  colorSecondary: '#10b981',
+  colorPrimary: '#38bdf8',
+  colorSecondary: '#34d399',
 
   // UI colors
-  appBg: '#f8fafc',
-  appContentBg: '#ffffff',
-  appPreviewBg: '#ffffff',
-  appBorderColor: '#e2e8f0',
-  appBorderRadius: 10,
+  appBg: '#020617',
+  appContentBg: '#070b14',
+  appPreviewBg: '#020617',
+  appBorderColor: 'rgba(255, 255, 255, 0.08)',
+  appBorderRadius: 12,
 
   // Text colors
-  textColor: '#0f172a',
-  textMutedColor: '#64748b',
-  textInverseColor: '#ffffff',
+  textColor: '#f8fafc',
+  textMutedColor: '#94a3b8',
+  textInverseColor: '#020617',
 
   // Toolbar default & active colors
-  barTextColor: '#475569',
-  barSelectedColor: '#059669',
-  barHoverColor: '#10b981',
-  barBg: '#ffffff',
+  barTextColor: '#94a3b8',
+  barSelectedColor: '#38bdf8',
+  barHoverColor: '#34d399',
+  barBg: '#070b14',
 
   // Form input controls
-  inputBg: '#ffffff',
-  inputBorder: '#cbd5e1',
-  inputTextColor: '#0f172a',
-  inputBorderRadius: 8,
+  inputBg: '#0f172a',
+  inputBorder: 'rgba(255, 255, 255, 0.12)',
+  inputTextColor: '#f8fafc',
+  inputBorderRadius: 10,
 });
