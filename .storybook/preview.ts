@@ -1,8 +1,13 @@
 import type { Preview } from '@storybook/react';
+import { themes } from '@storybook/theming';
 import '../src/styles/figma-tokens.css';
 
 const preview: Preview = {
   parameters: {
+    layout: 'centered',
+    docs: {
+      theme: themes.dark,
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -10,10 +15,11 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: 'dark',
+      default: 'm3-surface',
       values: [
+        { name: 'm3-surface', value: '#121318' },
+        { name: 'm3-container', value: '#1b1b21' },
         { name: 'dark', value: '#020617' },
-        { name: 'slate-900', value: '#0f172a' },
         { name: 'light', value: '#ffffff' }
       ]
     }

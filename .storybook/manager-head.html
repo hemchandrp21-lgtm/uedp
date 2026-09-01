@@ -1,0 +1,128 @@
+<!-- Material Design 3 (M3 / Material You) Storybook UI Shell Styles -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* Root M3 Design Tokens */
+  :root {
+    --m3-surface: #121318;
+    --m3-surface-container: #1b1b21;
+    --m3-surface-container-high: #282930;
+    --m3-primary: #d0bcff;
+    --m3-on-primary-container: #e8def8;
+    --m3-primary-container: rgba(208, 188, 255, 0.16);
+    --m3-on-surface: #e6e1e5;
+    --m3-on-surface-variant: #c4c7c5;
+    --m3-outline-variant: #49454f;
+  }
+
+  body, button, input, textarea, select {
+    font-family: 'Roboto', 'Inter', -apple-system, sans-serif !important;
+    color: var(--m3-on-surface) !important;
+  }
+
+  /* Sidebar header & Brand Logo */
+  .sidebar-header {
+    padding: 18px 20px !important;
+    background: var(--m3-surface-container) !important;
+    border-bottom: 1px solid var(--m3-outline-variant) !important;
+  }
+
+  .sidebar-header a, .sidebar-header div, [title*="UEDP"] {
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    color: var(--m3-primary) !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  /* Sidebar Container */
+  .sidebar-container {
+    background: var(--m3-surface) !important;
+    border-right: 1px solid var(--m3-outline-variant) !important;
+  }
+
+  /* Tree items (folders, components, stories) - M3 Navigation Rail Pill Style */
+  [data-nodetype="group"] {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: var(--m3-on-surface-variant) !important;
+    margin-top: 14px !important;
+    padding-left: 12px !important;
+  }
+
+  [data-nodetype="component"], [data-nodetype="story"], .sidebar-item {
+    font-size: 13.5px !important;
+    font-weight: 500 !important;
+    border-radius: 20px !important; /* M3 Pill Shape */
+    margin: 3px 10px !important;
+    padding: 7px 14px !important;
+    transition: all 0.2s cubic-bezier(0.2, 0, 0, 1) !important;
+    color: var(--m3-on-surface-variant) !important;
+    border: 1px solid transparent !important;
+  }
+
+  [data-nodetype="component"]:hover, [data-nodetype="story"]:hover {
+    background: rgba(230, 225, 229, 0.08) !important;
+    color: var(--m3-on-surface) !important;
+  }
+
+  [data-selected="true"] {
+    background: var(--m3-primary-container) !important;
+    color: var(--m3-primary) !important;
+    font-weight: 600 !important;
+    border: 1px solid rgba(208, 188, 255, 0.3) !important;
+  }
+
+  /* M3 Search Bar */
+  .search-field input, input[placeholder*="Search"] {
+    background: var(--m3-surface-container-high) !important;
+    border: 1px solid var(--m3-outline-variant) !important;
+    border-radius: 28px !important; /* M3 Search Bar Pill Shape */
+    color: var(--m3-on-surface) !important;
+    padding: 8px 16px !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .search-field input:focus, input[placeholder*="Search"]:focus {
+    border-color: var(--m3-primary) !important;
+    box-shadow: 0 0 0 2px rgba(208, 188, 255, 0.2) !important;
+    outline: none !important;
+  }
+
+  /* Top Toolbar Header (M3 Top App Bar) */
+  header, [role="toolbar"] {
+    background: var(--m3-surface-container) !important;
+    border-bottom: 1px solid var(--m3-outline-variant) !important;
+  }
+
+  [role="toolbar"] button {
+    border-radius: 20px !important;
+    transition: all 0.2s ease !important;
+  }
+
+  [role="toolbar"] button:hover {
+    background: rgba(230, 225, 229, 0.08) !important;
+    color: var(--m3-primary) !important;
+  }
+
+  /* M3 Scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--m3-surface);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--m3-outline-variant);
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--m3-primary);
+  }
+</style>
