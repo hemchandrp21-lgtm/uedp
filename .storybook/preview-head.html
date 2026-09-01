@@ -31,10 +31,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   html, body {
-    height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
+    background-color: #020617 !important;
   }
 
   /* Ultra-modern ambient glow mesh background */
@@ -48,6 +48,11 @@
     color: #f8fafc !important;
   }
 
+  #storybook-root {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   /* Center canvas ONLY for story views, NOT for Docs mode */
   #storybook-root:not(:has(.sbdocs)) {
     display: flex;
@@ -55,9 +60,21 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 2.5rem;
+    padding: 2rem;
+  }
+
+  /* Force Docs mode to stick immediately to the top of screen without scroll requirement */
+  body:has(.sbdocs) #storybook-root,
+  #storybook-root:has(.sbdocs),
+  .sbdocs-wrapper,
+  .sbdocs,
+  .docs-page {
+    display: block !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin-top: 0 !important;
+    padding-top: 0.5rem !important;
+    vertical-align: top !important;
   }
 
   /* Docs mode styling & text visibility fixes */
@@ -67,13 +84,15 @@
     width: 100% !important;
     max-width: 1100px !important;
     margin: 0 auto !important;
-    padding: 2rem !important;
+    padding: 1rem 2rem 2rem 2rem !important;
     box-sizing: border-box !important;
   }
 
   .sbdocs h1, .sbdocs h2, .sbdocs h3, .sbdocs h4, .sbdocs-title, .sbdocs-subtitle {
     color: #f8fafc !important;
     font-family: 'Outfit', sans-serif !important;
+    margin-top: 0.25rem !important;
+    padding-top: 0 !important;
   }
 
   .sbdocs p, .sbdocs span, .sbdocs li, .sbdocs td, .sbdocs th, .sbdocs label {
