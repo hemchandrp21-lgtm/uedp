@@ -31,8 +31,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   html, body {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     font-family: 'Roboto', 'Inter', sans-serif;
     background-color: #121318 !important;
     color: #e6e1e5 !important;
@@ -40,6 +40,8 @@
 
   #storybook-root {
     width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
     box-sizing: border-box;
   }
 
@@ -50,7 +52,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 2rem;
+    padding: 2rem !important;
     box-sizing: border-box;
   }
 
@@ -65,17 +67,28 @@
     min-height: auto !important;
     height: auto !important;
     padding: 1.5rem !important;
+    margin: 0 !important;
     box-sizing: border-box !important;
   }
 
-  /* Docs Page Layout: Top aligned, no top scroll offset */
-  .sbdocs, .sbdocs-wrapper, .docs-page {
+  /* Docs Page Layout: Remove ALL top blank space */
+  .sbdocs,
+  .sbdocs-wrapper,
+  .sbdocs-content,
+  .sbdocs-header,
+  .docs-page,
+  [class*="sbdocs"] {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .sbdocs-wrapper {
     background: transparent !important;
     color: #e6e1e5 !important;
     width: 100% !important;
     max-width: 1100px !important;
     margin: 0 auto !important;
-    padding: 1rem 2rem 2rem 2rem !important;
+    padding: 0.5rem 2rem 2rem 2rem !important;
     box-sizing: border-box !important;
     min-height: 0 !important;
   }
@@ -83,8 +96,8 @@
   .sbdocs h1, .sbdocs h2, .sbdocs h3, .sbdocs h4, .sbdocs-title, .sbdocs-subtitle {
     color: #e6e1e5 !important;
     font-family: 'Outfit', 'Roboto', sans-serif !important;
-    margin-top: 0.25rem !important;
-    padding-top: 0 !important;
+    margin-top: 0 !important;
+    padding-top: 0.25rem !important;
   }
 
   .sbdocs p, .sbdocs span, .sbdocs li, .sbdocs td, .sbdocs th, .sbdocs label {
@@ -97,7 +110,7 @@
     border: 1px solid #49454f !important;
     border-radius: 16px !important;
     overflow: hidden !important;
-    margin: 1.5rem 0 !important;
+    margin: 1rem 0 1.5rem 0 !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
   }
 
