@@ -43,31 +43,32 @@
     box-sizing: border-box;
   }
 
-  /* Center canvas ONLY for story views, NOT for Docs mode */
-  #storybook-root:not(:has(.sbdocs)) {
+  /* Single Story View: Center vertically & horizontally */
+  body:not(.sb-docs-page):not(.sb-docs-story) #storybook-root {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 2rem;
+    box-sizing: border-box;
   }
 
-  /* Force Docs mode to stick immediately to the top of screen without scroll requirement */
-  body:has(.sbdocs) #storybook-root,
-  #storybook-root:has(.sbdocs),
-  .sbdocs-wrapper,
-  .sbdocs,
-  .docs-page {
-    display: block !important;
-    min-height: 0 !important;
+  /* Embedded Story Inside Docs Mode: Auto height, no 100vh overflow */
+  body.sb-docs-story #storybook-root,
+  body.sb-docs-page #storybook-root,
+  .sb-docs-story #storybook-root,
+  .docblock-canvas #storybook-root {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: auto !important;
     height: auto !important;
-    margin-top: 0 !important;
-    padding-top: 0.5rem !important;
-    vertical-align: top !important;
+    padding: 1.5rem !important;
+    box-sizing: border-box !important;
   }
 
-  /* M3 Docs Container & Surface Card styling */
+  /* Docs Page Layout: Top aligned, no top scroll offset */
   .sbdocs, .sbdocs-wrapper, .docs-page {
     background: transparent !important;
     color: #e6e1e5 !important;
@@ -76,6 +77,7 @@
     margin: 0 auto !important;
     padding: 1rem 2rem 2rem 2rem !important;
     box-sizing: border-box !important;
+    min-height: 0 !important;
   }
 
   .sbdocs h1, .sbdocs h2, .sbdocs h3, .sbdocs h4, .sbdocs-title, .sbdocs-subtitle {
@@ -89,11 +91,29 @@
     color: #c4c7c5 !important;
   }
 
+  /* M3 Surface Cards for Story Preview Block in Docs Mode */
+  .docblock-canvas, .docs-story {
+    background: #1b1b21 !important;
+    border: 1px solid #49454f !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    margin: 1.5rem 0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  /* M3 Toolbar Header inside Docs Story Canvas */
+  .docblock-canvas [role="toolbar"],
+  .docblock-canvas .st-toolbar {
+    background: #282930 !important;
+    border-bottom: 1px solid #49454f !important;
+    color: #e6e1e5 !important;
+  }
+
   /* M3 Surface Container Tables & ArgTypes */
   .sbdocs-table, table, .docblock-argstable {
     background: #1b1b21 !important;
     border: 1px solid #49454f !important;
-    border-radius: 16px !important; /* M3 Medium Shape */
+    border-radius: 16px !important;
     overflow: hidden !important;
     color: #e6e1e5 !important;
   }
