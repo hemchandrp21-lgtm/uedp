@@ -3,14 +3,14 @@ import './Logo.css';
 
 export interface LogoProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Logo variant layout */
-  variant?: 'full' | 'icon' | 'stacked';
+  variant?: 'full' | 'icon';
   /** Logo size scale */
   size?: 'sm' | 'md' | 'lg';
   /** Dark or Light theme context */
   theme?: 'dark' | 'light';
   /** Enables hover, active, and click microinteractions */
   interactive?: boolean;
-  /** Optional custom tagline text shown beneath sasystem brand name */
+  /** Tagline text shown beneath sasystem brand name */
   tagline?: string;
   /** Navigation link target URL (if clickable) */
   href?: string;
@@ -21,7 +21,7 @@ export const Logo: React.FC<LogoProps> = ({
   size = 'md',
   theme = 'light',
   interactive = true,
-  tagline = 'SALES DESIGN',
+  tagline = 'sales design',
   href,
   className = '',
   onClick,

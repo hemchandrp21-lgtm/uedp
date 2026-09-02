@@ -61,7 +61,7 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
     <div className={`uedp-sidebar-nav ${className}`} {...props}>
       {showLogo && (
         <div className="uedp-sidebar-nav__brand">
-          <Logo variant="full" size="md" theme="dark" tagline="SALES DESIGN" />
+          <Logo variant="full" size="md" theme="dark" tagline="sales design" />
         </div>
       )}
       <div className="uedp-sidebar-nav__menu">

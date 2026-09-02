@@ -9,16 +9,11 @@ const meta: Meta<typeof Logo> = {
     docs: {
       description: {
         component:
-          'Official sasystem sales design brand logo with integrated 3D tilt, gradient flow, and tactile spring microinteractions on hover and click.',
+          'Official sasystem sales design logo with 3D tilt, radial glow, and interactive microinteractions.',
       },
     },
   },
   argTypes: {
-    variant: {
-      control: { type: 'select' },
-      options: ['full', 'icon', 'stacked'],
-      description: 'Layout arrangement of logo icon and brand text',
-    },
     size: {
       control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
@@ -39,11 +34,10 @@ const meta: Meta<typeof Logo> = {
     },
   },
   args: {
-    variant: 'full',
     size: 'lg',
     theme: 'dark',
     interactive: true,
-    tagline: 'SALES DESIGN',
+    tagline: 'sales design',
   },
 };
 
@@ -52,17 +46,8 @@ type Story = StoryObj<typeof Logo>;
 
 export const Default: Story = {
   args: {
-    variant: 'full',
     size: 'lg',
     theme: 'dark',
-    tagline: 'SALES DESIGN',
-  },
-};
-
-export const IconOnly: Story = {
-  args: {
-    variant: 'icon',
-    size: 'lg',
-    theme: 'dark',
+    tagline: 'sales design',
   },
 };
