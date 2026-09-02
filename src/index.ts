@@ -1,3 +1,7 @@
+// 0. Brand
+export { Logo } from './components/brand/Logo';
+export type { LogoProps } from './components/brand/Logo';
+
 // 1. Controls
 export { Button } from './components/controls/button/Button';
 export type { ButtonProps } from './components/controls/button/Button';

@@ -1,0 +1,266 @@
+/* ==========================================================================
+   sasystem Logo Component & Microinteraction Styling
+   ========================================================================== */
+
+.sasystem-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3, 12px);
+  text-decoration: none;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  outline: none;
+  padding: 4px 8px;
+  border-radius: var(--radius-md, 8px);
+}
+
+/* Base Variants & Layouts */
+.sasystem-logo--stacked {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2, 8px);
+}
+
+.sasystem-logo--icon-only .sasystem-logo__text-group {
+  display: none;
+}
+
+/* Sizes */
+.sasystem-logo--sm {
+  font-size: 14px;
+}
+.sasystem-logo--sm .sasystem-logo__icon {
+  width: 28px;
+  height: 28px;
+}
+
+.sasystem-logo--md {
+  font-size: 18px;
+}
+.sasystem-logo--md .sasystem-logo__icon {
+  width: 38px;
+  height: 38px;
+}
+
+.sasystem-logo--lg {
+  font-size: 24px;
+}
+.sasystem-logo--lg .sasystem-logo__icon {
+  width: 52px;
+  height: 52px;
+}
+
+/* Focus State */
+.sasystem-logo:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-primary-500, #6366f1), 0 0 12px rgba(99, 102, 241, 0.4);
+}
+
+/* ==========================================================================
+   1. LOGO ICON & MICROINTERACTIONS
+   ========================================================================== */
+
+.sasystem-logo__icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 600px;
+}
+
+.sasystem-logo__aura {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, rgba(99, 102, 241, 0.3) 60%, transparent 100%);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.sasystem-logo__icon {
+  position: relative;
+  z-index: 1;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+}
+
+.sasystem-logo__icon-bg {
+  transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+.sasystem-logo__path-sa {
+  transition: stroke-dashoffset 0.6s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sasystem-logo__node-glow {
+  animation: sasystem-node-pulse 2.5s infinite ease-in-out;
+}
+
+@keyframes sasystem-node-pulse {
+  0%, 100% {
+    r: 3px;
+    opacity: 0.8;
+  }
+  50% {
+    r: 4.5px;
+    opacity: 1;
+  }
+}
+
+/* Logo Icon Microinteractions on Hover */
+.sasystem-logo--interactive:hover .sasystem-logo__icon-wrapper .sasystem-logo__aura {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+.sasystem-logo--interactive:hover .sasystem-logo__icon {
+  transform: perspective(600px) rotateY(12deg) rotateX(-6deg) translateY(-2px) scale(1.08);
+  filter: drop-shadow(0 6px 12px rgba(99, 102, 241, 0.35));
+}
+
+.sasystem-logo--interactive:hover .sasystem-logo__path-sa {
+  transform: scale(1.02);
+}
+
+/* Logo Icon Microinteractions on Active (Click) */
+.sasystem-logo--interactive:active .sasystem-logo__icon {
+  transform: scale(0.92) rotateY(0deg) rotateX(0deg);
+  transition: transform 0.1s ease-in;
+}
+
+/* Ripple Shockwave */
+.sasystem-logo__ripple {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(6, 182, 212, 0.8);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sasystem-logo--interactive:active .sasystem-logo__ripple {
+  animation: sasystem-ripple-burst 0.5s cubic-bezier(0, 0.2, 0.8, 1);
+}
+
+@keyframes sasystem-ripple-burst {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   2. BRAND TYPOGRAPHY & MICROINTERACTIONS
+   ========================================================================== */
+
+.sasystem-logo__text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.sasystem-logo__brand-name {
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: baseline;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), letter-spacing 0.3s ease;
+}
+
+.sasystem-logo__prefix {
+  background: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  text-transform: lowercase;
+  transition: background-position 0.5s ease;
+}
+
+.sasystem-logo__suffix {
+  color: var(--color-text-primary, #0f172a);
+  font-weight: 600;
+  text-transform: lowercase;
+  opacity: 0.95;
+  transition: color 0.3s ease;
+}
+
+.sasystem-logo--theme-dark .sasystem-logo__suffix {
+  color: #f8fafc;
+}
+
+.sasystem-logo__tagline {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.55em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary, #64748b);
+  margin-top: 1px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.sasystem-logo--theme-dark .sasystem-logo__tagline {
+  color: #94a3b8;
+}
+
+.sasystem-logo__underline {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #06b6d4, #6366f1, #ec4899);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+/* Brand Name Microinteractions on Hover */
+.sasystem-logo--interactive:hover .sasystem-logo__brand-name {
+  transform: translateY(-1.5px);
+  letter-spacing: 0.01em;
+}
+
+.sasystem-logo--interactive:hover .sasystem-logo__prefix {
+  background-position: 100% 0%;
+}
+
+.sasystem-logo--interactive:hover .sasystem-logo__suffix {
+  color: #6366f1;
+}
+
+.sasystem-logo--theme-dark.sasystem-logo--interactive:hover .sasystem-logo__suffix {
+  color: #38bdf8;
+}
+
+.sasystem-logo--interactive:hover .sasystem-logo__underline {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.sasystem-logo--interactive:hover .sasystem-logo__tagline {
+  opacity: 1;
+  letter-spacing: 0.18em;
+}
+
+/* Brand Name Microinteraction on Active (Click) */
+.sasystem-logo--interactive:active .sasystem-logo__brand-name {
+  transform: translateY(0) scale(0.97);
+  transition: transform 0.1s ease;
+}
