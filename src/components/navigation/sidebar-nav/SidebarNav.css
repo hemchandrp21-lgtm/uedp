@@ -11,6 +11,14 @@
   font-family: var(--uedp-font-base, 'Inter', sans-serif);
 }
 
+.uedp-sidebar-nav__brand {
+  padding: 4px 6px 16px 6px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: flex-start;
+}
+
 .uedp-sidebar-nav__menu {
   display: flex;
   flex-direction: column;

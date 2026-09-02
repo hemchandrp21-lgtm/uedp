@@ -2,10 +2,11 @@ import React from 'react';
 import { Bell, Upload } from 'lucide-react';
 import { Status } from '../../badges/status/Status';
 import { Button } from '../../controls/button/Button';
+import { Logo } from '../../brand/Logo';
 import './TopNavBar.css';
 
 export interface TopNavBarProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Page header title matching Figma top nav bar (node-id 171-1524) */
+  /** Page header title */
   title?: string;
   /** Status pill text */
   statusLabel?: string;
@@ -15,6 +16,8 @@ export interface TopNavBarProps extends React.HTMLAttributes<HTMLDivElement> {
   secondaryActionText?: string;
   /** Unread notification dot indicator toggle */
   hasUnreadNotifications?: boolean;
+  /** Toggles brand logo icon in top bar */
+  showLogo?: boolean;
   /** Notification bell click callback */
   onNotificationClick?: (e: React.MouseEvent) => void;
   /** Primary button click callback */
@@ -27,6 +30,7 @@ export const TopNavBar: React.FC<TopNavBarProps> = ({
   primaryActionText = '+ All Regions',
   secondaryActionText = 'All Categories',
   hasUnreadNotifications = true,
+  showLogo = false,
   onNotificationClick,
   onPrimaryActionClick,
   className = '',
@@ -35,6 +39,7 @@ export const TopNavBar: React.FC<TopNavBarProps> = ({
   return (
     <header className={`uedp-top-nav-bar ${className}`} {...props}>
       <div className="uedp-top-nav-bar__left">
+        {showLogo && <Logo variant="icon" size="sm" theme="dark" />}
         <h1 className="uedp-top-nav-bar__title">{title}</h1>
         <Status variant="success" label={statusLabel} />
         <div className="uedp-top-nav-bar__filters">

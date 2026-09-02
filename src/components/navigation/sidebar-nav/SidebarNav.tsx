@@ -9,6 +9,7 @@ import {
   Settings,
 } from 'lucide-react';
 import { NavItem } from '../nav-item/NavItem';
+import { Logo } from '../../brand/Logo';
 import './SidebarNav.css';
 
 export interface SidebarNavItemData {
@@ -34,12 +35,15 @@ export interface SidebarNavProps extends Omit<React.HTMLAttributes<HTMLDivElemen
   onSelect?: (key: string) => void;
   /** Custom list of sidebar navigation items */
   items?: SidebarNavItemData[];
+  /** Toggles sasystem logo header at top of sidebar */
+  showLogo?: boolean;
 }
 
 export const SidebarNav: React.FC<SidebarNavProps> = ({
   activeItem = 'dashboard',
   onSelect,
   items = defaultSidebarItems,
+  showLogo = true,
   className = '',
   ...props
 }) => {
@@ -55,6 +59,11 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
 
   return (
     <div className={`uedp-sidebar-nav ${className}`} {...props}>
+      {showLogo && (
+        <div className="uedp-sidebar-nav__brand">
+          <Logo variant="full" size="md" theme="dark" tagline="SALES DESIGN" />
+        </div>
+      )}
       <div className="uedp-sidebar-nav__menu">
         {items.map((item) => {
           const isSelected = currentActive.toLowerCase() === item.key.toLowerCase();
