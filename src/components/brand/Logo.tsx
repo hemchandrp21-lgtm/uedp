@@ -21,7 +21,7 @@ export const Logo: React.FC<LogoProps> = ({
   size = 'md',
   theme = 'light',
   interactive = true,
-  tagline,
+  tagline = 'SALES DESIGN',
   href,
   className = '',
   onClick,
