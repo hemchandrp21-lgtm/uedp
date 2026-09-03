@@ -9,18 +9,27 @@ export interface IconBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: React.ReactNode;
   /** Size variant of the icon badge */
   size?: 'sm' | 'md' | 'lg';
+  /** Boolean state for ON/OFF active toggle */
+  on?: boolean;
+  /** Alias boolean state for ON/OFF active toggle */
+  active?: boolean;
 }
 
 export const IconBadge: React.FC<IconBadgeProps> = ({
   variant = 'success',
   icon = <Users size={22} />,
   size = 'md',
+  on,
+  active,
   className = '',
   ...props
 }) => {
+  const isOn = on !== undefined ? on : active !== undefined ? active : true;
+  const stateClass = isOn ? 'uedp-icon-badge--on' : 'uedp-icon-badge--off';
+
   return (
     <div
-      className={`uedp-icon-badge uedp-icon-badge--${variant} uedp-icon-badge--${size} ${className}`}
+      className={`uedp-icon-badge uedp-icon-badge--${variant} uedp-icon-badge--${size} ${stateClass} ${className}`}
       {...props}
     >
       <span className="uedp-icon-badge__icon">{icon}</span>

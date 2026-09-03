@@ -53,6 +53,12 @@ export interface IconProps extends React.SVGAttributes<SVGElement> {
   hasDot?: boolean;
   /** Dot indicator color */
   dotColor?: string;
+  /** Boolean state for ON/OFF active state toggle */
+  on?: boolean;
+  /** Alias boolean state for ON/OFF active toggle */
+  active?: boolean;
+  /** Color applied when icon is in ON state */
+  activeColor?: string;
 }
 
 // Icon mapping dictionary
@@ -101,21 +107,36 @@ export const Icon: React.FC<IconProps> = ({
   strokeWidth = 2,
   hasDot = false,
   dotColor = '#ef4444',
+  on,
+  active,
+  activeColor,
   className = '',
   ...props
 }) => {
+  // Determine ON/OFF boolean state (defaults to true if omitted, or follows on/active prop)
+  const isOn = on !== undefined ? on : active !== undefined ? active : true;
+
   const IconComponent = iconMap[name.toLowerCase()] || LucideIcons.HelpCircle;
+  const effectiveColor = isOn && activeColor ? activeColor : color;
+  const stateClass = isOn ? 'uedp-icon-wrapper--on' : 'uedp-icon-wrapper--off';
 
   return (
-    <div className={`uedp-icon-wrapper ${className}`}>
+    <div
+      className={`uedp-icon-wrapper ${stateClass} ${className}`}
+      style={
+        {
+          '--icon-active-glow': activeColor ? activeColor : undefined,
+        } as React.CSSProperties
+      }
+    >
       <IconComponent
         size={size}
-        color={color}
+        color={effectiveColor}
         strokeWidth={strokeWidth}
         className="uedp-icon"
         {...props}
       />
-      {hasDot && (
+      {hasDot && isOn && (
         <span
           className="uedp-icon__dot"
           style={{ backgroundColor: dotColor }}
