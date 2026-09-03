@@ -74,3 +74,15 @@ export type { IconProps, IconName } from './components/icons/Icon';
 
 // 8. Analytics & Telemetry Utilities
 export { initGA, trackEvent, trackComponentInteraction, GA_MEASUREMENT_ID } from './utils/analytics';
+
+// 9. Sound Effects & Microinteraction Audio Utilities
+export {
+  playClickSound,
+  enableClickSoundEngine,
+  setSoundMuted,
+  isSoundMuted,
+  toggleSoundMute,
+  soundEngine
+} from './utils/sound';
+export type { SoundEffectType, SoundOptions } from './utils/sound';
+

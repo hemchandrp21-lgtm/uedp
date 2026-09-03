@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/react';
 import '../src/styles/figma-tokens.css';
+import '../src/utils/sound';
+
 
 const preview: Preview = {
   parameters: {

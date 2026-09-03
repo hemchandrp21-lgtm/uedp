@@ -232,3 +232,78 @@
     injectSasystemBrand();
   });
 </script>
+
+<script>
+  // Global Crisp Sound Effects Engine for Storybook Manager UI
+  (function() {
+    let audioCtx = null;
+    let lastPlay = 0;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (Ctx) audioCtx = new Ctx();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playCrispClick() {
+      const now = performance.now();
+      if (now - lastPlay < 15) return;
+      lastPlay = now;
+
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      const startTime = ctx.currentTime;
+      const duration = 0.024;
+      const pitch = 0.975 + Math.random() * 0.05;
+
+      const gain = ctx.createGain();
+      gain.connect(ctx.destination);
+      gain.gain.setValueAtTime(0.2, startTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+
+      const osc = ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(2600 * pitch, startTime);
+      osc.frequency.exponentialRampToValueAtTime(450 * pitch, startTime + duration);
+
+      osc.connect(gain);
+      osc.start(startTime);
+      osc.stop(startTime + duration);
+
+      const bufferSize = Math.floor(ctx.sampleRate * 0.004);
+      if (bufferSize > 0) {
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1);
+
+        const noise = ctx.createBufferSource();
+        noise.buffer = buffer;
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'highpass';
+        filter.frequency.setValueAtTime(2200 * pitch, startTime);
+
+        const noiseGain = ctx.createGain();
+        noiseGain.gain.setValueAtTime(0.09, startTime);
+        noiseGain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.004);
+
+        noise.connect(filter);
+        filter.connect(noiseGain);
+        noiseGain.connect(ctx.destination);
+
+        noise.start(startTime);
+        noise.stop(startTime + 0.004);
+      }
+    }
+
+    window.addEventListener('pointerdown', function() {
+      playCrispClick();
+    }, { capture: true, passive: true });
+  })();
+</script>
+
