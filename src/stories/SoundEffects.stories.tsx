@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
-import { playClickSound, setSoundMuted, isSoundMuted, toggleSoundMute, SoundEffectType } from '../utils/sound';
-import { Volume2, VolumeX, Sparkles, Sliders, Play, Zap } from 'lucide-react';
+import {
+  playClickSound,
+  setSoundMuted,
+  isSoundMuted,
+  toggleSoundMute,
+  setSoundMode,
+  getSoundMode,
+  SoundEffectType,
+} from '../utils/sound';
+import { Volume2, VolumeX, Sparkles, Sliders, Play, Zap, Music } from 'lucide-react';
 
 export default {
   title: 'Utilities/SoundEffects',
   parameters: {
     docs: {
       description: {
-        component: 'Interactive demo of the Web Audio API synthesized crisp sound effects engine. Every click on any UI component automatically triggers crisp tactile audio feedback.',
+        component:
+          'Interactive demo of the Web Audio API synthesized piano & crisp sound effects engine. Every click on any UI component automatically triggers tactile piano audio feedback.',
       },
     },
   },
@@ -15,23 +24,54 @@ export default {
 
 export const AudioEffectsGallery = () => {
   const [muted, setMutedState] = useState(isSoundMuted());
+  const [activeMode, setActiveModeState] = useState<SoundEffectType>(getSoundMode());
   const [pitch, setPitch] = useState(1.0);
   const [volume, setVolume] = useState(1.0);
   const [clickCount, setClickCount] = useState(0);
-  const [lastPreset, setLastPreset] = useState<string>('crisp');
+  const [lastPreset, setLastPreset] = useState<string>('piano');
 
   const handleToggleMute = () => {
     const newState = toggleSoundMute();
     setMutedState(newState);
   };
 
-  const triggerSound = (type: SoundEffectType) => {
-    setClickCount((c) => c + 1);
-    setLastPreset(type);
-    playClickSound({ type, volume, pitch });
+  const handleSelectMode = (mode: SoundEffectType) => {
+    setSoundMode(mode);
+    setActiveModeState(mode);
+    setLastPreset(mode);
+    playClickSound({ type: mode, volume, pitch });
   };
 
+  const triggerSound = (type: SoundEffectType, explicitFreq?: number) => {
+    setClickCount((c) => c + 1);
+    setLastPreset(type);
+    playClickSound({ type, volume, pitch, noteFreq: explicitFreq });
+  };
+
+  const pianoKeys = [
+    { note: 'C5', freq: 523.25, isBlack: false },
+    { note: 'C#5', freq: 554.37, isBlack: true },
+    { note: 'D5', freq: 587.33, isBlack: false },
+    { note: 'D#5', freq: 622.25, isBlack: true },
+    { note: 'E5', freq: 659.25, isBlack: false },
+    { note: 'F5', freq: 698.46, isBlack: false },
+    { note: 'F#5', freq: 739.99, isBlack: true },
+    { note: 'G5', freq: 783.99, isBlack: false },
+    { note: 'G#5', freq: 830.61, isBlack: true },
+    { note: 'A5', freq: 880.0, isBlack: false },
+    { note: 'A#5', freq: 932.33, isBlack: true },
+    { note: 'B5', freq: 987.77, isBlack: false },
+    { note: 'C6', freq: 1046.5, isBlack: false },
+  ];
+
   const soundPresets: { type: SoundEffectType; name: string; desc: string; iconColor: string; bg: string }[] = [
+    {
+      type: 'piano',
+      name: 'Acoustic Piano Note',
+      desc: 'Rich harmonic acoustic piano tone with fundamental, 2nd & 3rd overtones, felt hammer strike, and pentatonic progression.',
+      iconColor: '#ec4899',
+      bg: 'linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(168, 85, 247, 0.2))',
+    },
     {
       type: 'crisp',
       name: 'Crisp Click',
@@ -77,7 +117,7 @@ export const AudioEffectsGallery = () => {
         color: '#f8fafc',
         background: '#020617',
         borderRadius: '20px',
-        maxWidth: '900px',
+        maxWidth: '920px',
         margin: '0 auto',
         boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)',
         border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -87,23 +127,23 @@ export const AudioEffectsGallery = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <Sparkles style={{ width: '28px', height: '28px', color: '#38bdf8' }} />
+            <Music style={{ width: '28px', height: '28px', color: '#ec4899' }} />
             <h1
               style={{
                 fontFamily: "'Outfit', sans-serif",
                 fontSize: '30px',
                 fontWeight: 700,
                 margin: 0,
-                background: 'linear-gradient(135deg, #38bdf8 0%, #818cf8 100%)',
+                background: 'linear-gradient(135deg, #ec4899 0%, #a855f7 50%, #38bdf8 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              Crisp Sound Effects Engine
+              Piano & Tactile Audio Engine
             </h1>
           </div>
           <p style={{ color: '#94a3b8', marginTop: '6px', fontSize: '14px' }}>
-            Zero-latency, Web Audio API synthesized tactile microinteraction sound feedback on every click.
+            Synthesized acoustic piano notes & crisp microinteraction sound feedback on every click.
           </p>
         </div>
 
@@ -130,7 +170,81 @@ export const AudioEffectsGallery = () => {
         </button>
       </div>
 
-      {/* Live Audio Feedback Status Bar */}
+      {/* Interactive Piano Keyboard Keyboard */}
+      <div
+        style={{
+          background: 'linear-gradient(180deg, #0f172a 0%, #020617 100%)',
+          border: '1px solid rgba(236, 72, 153, 0.3)',
+          borderRadius: '18px',
+          padding: '24px',
+          marginBottom: '32px',
+          boxShadow: '0 10px 30px rgba(236, 72, 153, 0.15)',
+        }}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Sparkles style={{ width: '18px', height: '18px', color: '#ec4899' }} />
+            <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700, color: '#f472b6' }}>
+              Synthesized Acoustic Piano Keyboard
+            </h3>
+          </div>
+          <span style={{ fontSize: '12px', color: '#94a3b8' }}>Click any key to play pure Web Audio harmonic piano notes</span>
+        </div>
+
+        {/* Piano Keys Container */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            gap: '4px',
+            background: '#090d16',
+            padding: '16px',
+            borderRadius: '14px',
+            overflowX: 'auto',
+          }}
+        >
+          {pianoKeys.map((key) => (
+            <button
+              key={key.note}
+              onClick={() => triggerSound('piano', key.freq)}
+              style={{
+                width: key.isBlack ? '36px' : '48px',
+                height: key.isBlack ? '110px' : '160px',
+                background: key.isBlack
+                  ? 'linear-gradient(180deg, #1e293b 0%, #0f172a 100%)'
+                  : 'linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%)',
+                color: key.isBlack ? '#f472b6' : '#0f172a',
+                border: key.isBlack ? '1px solid rgba(236, 72, 153, 0.4)' : '1px solid #cbd5e1',
+                borderRadius: '0 0 8px 8px',
+                fontWeight: 700,
+                fontSize: '12px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'flex-end',
+                justifyContent: 'center',
+                paddingBottom: '10px',
+                boxShadow: key.isBlack
+                  ? '0 6px 12px rgba(0, 0, 0, 0.6)'
+                  : '0 6px 12px rgba(0, 0, 0, 0.3)',
+                transition: 'all 0.1s ease',
+                userSelect: 'none',
+              }}
+              onMouseDown={(e) => {
+                e.currentTarget.style.transform = 'translateY(4px)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+              onMouseUp={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              {key.note}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Default Sound Mode Selector */}
       <div
         style={{
           background: 'rgba(15, 23, 42, 0.8)',
@@ -147,14 +261,32 @@ export const AudioEffectsGallery = () => {
           <Zap style={{ width: '20px', height: '20px', color: '#f59e0b' }} />
           <div>
             <span style={{ fontSize: '12px', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              Last Triggered Sound
+              Active Sound Mode on Clicks
             </span>
-            <div style={{ fontWeight: 600, fontSize: '15px', color: '#38bdf8' }}>{lastPreset.toUpperCase()} EFFECT</div>
+            <div style={{ fontWeight: 600, fontSize: '15px', color: '#ec4899' }}>{activeMode.toUpperCase()} MODE</div>
           </div>
         </div>
-        <div style={{ textAlign: 'right' }}>
-          <span style={{ fontSize: '12px', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Total Clicks</span>
-          <div style={{ fontWeight: 700, fontSize: '18px', color: '#f8fafc' }}>{clickCount}</div>
+
+        <div style={{ display: 'flex', gap: '8px' }}>
+          {(['piano', 'crisp', 'snap', 'pop'] as SoundEffectType[]).map((mode) => (
+            <button
+              key={mode}
+              onClick={() => handleSelectMode(mode)}
+              style={{
+                padding: '6px 14px',
+                borderRadius: '8px',
+                fontSize: '12px',
+                fontWeight: 600,
+                background: activeMode === mode ? '#ec4899' : '#1e293b',
+                color: activeMode === mode ? '#ffffff' : '#94a3b8',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              {mode.toUpperCase()}
+            </button>
+          ))}
         </div>
       </div>
 
@@ -162,7 +294,7 @@ export const AudioEffectsGallery = () => {
       <h2 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '16px', color: '#cbd5e1' }}>
         Synthesized Sound Effect Presets
       </h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px', marginBottom: '36px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px', marginBottom: '36px' }}>
         {soundPresets.map((preset) => (
           <div
             key={preset.type}

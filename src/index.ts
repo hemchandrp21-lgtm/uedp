@@ -82,7 +82,10 @@ export {
   setSoundMuted,
   isSoundMuted,
   toggleSoundMute,
+  setSoundMode,
+  getSoundMode,
   soundEngine
 } from './utils/sound';
 export type { SoundEffectType, SoundOptions } from './utils/sound';
+
 

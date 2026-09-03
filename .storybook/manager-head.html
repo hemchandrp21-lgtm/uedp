@@ -234,10 +234,12 @@
 </script>
 
 <script>
-  // Global Crisp Sound Effects Engine for Storybook Manager UI
+  // Global Piano & Crisp Audio Feedback Engine for Storybook Manager UI
   (function() {
     let audioCtx = null;
     let lastPlay = 0;
+    let pianoIdx = 0;
+    const scale = [523.25, 587.33, 659.25, 783.99, 880.00, 1046.50, 987.77, 783.99, 659.25];
 
     function getAudioContext() {
       if (!audioCtx) {
@@ -250,7 +252,7 @@
       return audioCtx;
     }
 
-    function playCrispClick() {
+    function playPianoClick() {
       const now = performance.now();
       if (now - lastPlay < 15) return;
       lastPlay = now;
@@ -259,51 +261,56 @@
       if (!ctx) return;
 
       const startTime = ctx.currentTime;
-      const duration = 0.024;
-      const pitch = 0.975 + Math.random() * 0.05;
+      const freq = scale[pianoIdx];
+      pianoIdx = (pianoIdx + 1) % scale.length;
+      const duration = 0.22;
 
-      const gain = ctx.createGain();
-      gain.connect(ctx.destination);
-      gain.gain.setValueAtTime(0.2, startTime);
-      gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+      const masterGain = ctx.createGain();
+      masterGain.connect(ctx.destination);
+      masterGain.gain.setValueAtTime(0.0001, startTime);
+      masterGain.gain.linearRampToValueAtTime(0.18, startTime + 0.003);
+      masterGain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
 
-      const osc = ctx.createOscillator();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(2600 * pitch, startTime);
-      osc.frequency.exponentialRampToValueAtTime(450 * pitch, startTime + duration);
+      // Fundamental Tone
+      const osc1 = ctx.createOscillator();
+      osc1.type = 'sine';
+      osc1.frequency.setValueAtTime(freq, startTime);
+      const g1 = ctx.createGain();
+      g1.gain.setValueAtTime(0.8, startTime);
+      osc1.connect(g1);
+      g1.connect(masterGain);
+      osc1.start(startTime);
+      osc1.stop(startTime + duration);
 
-      osc.connect(gain);
-      osc.start(startTime);
-      osc.stop(startTime + duration);
+      // 2nd Harmonic Over-tone
+      const osc2 = ctx.createOscillator();
+      osc2.type = 'triangle';
+      osc2.frequency.setValueAtTime(freq * 2.001, startTime);
+      const g2 = ctx.createGain();
+      g2.gain.setValueAtTime(0.35, startTime);
+      g2.gain.exponentialRampToValueAtTime(0.0001, startTime + (duration * 0.7));
+      osc2.connect(g2);
+      g2.connect(masterGain);
+      osc2.start(startTime);
+      osc2.stop(startTime + duration);
 
-      const bufferSize = Math.floor(ctx.sampleRate * 0.004);
-      if (bufferSize > 0) {
-        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-        const data = buffer.getChannelData(0);
-        for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1);
-
-        const noise = ctx.createBufferSource();
-        noise.buffer = buffer;
-        const filter = ctx.createBiquadFilter();
-        filter.type = 'highpass';
-        filter.frequency.setValueAtTime(2200 * pitch, startTime);
-
-        const noiseGain = ctx.createGain();
-        noiseGain.gain.setValueAtTime(0.09, startTime);
-        noiseGain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.004);
-
-        noise.connect(filter);
-        filter.connect(noiseGain);
-        noiseGain.connect(ctx.destination);
-
-        noise.start(startTime);
-        noise.stop(startTime + 0.004);
-      }
+      // 3rd Harmonic Sparkle
+      const osc3 = ctx.createOscillator();
+      osc3.type = 'sine';
+      osc3.frequency.setValueAtTime(freq * 3.002, startTime);
+      const g3 = ctx.createGain();
+      g3.gain.setValueAtTime(0.15, startTime);
+      g3.gain.exponentialRampToValueAtTime(0.0001, startTime + (duration * 0.4));
+      osc3.connect(g3);
+      g3.connect(masterGain);
+      osc3.start(startTime);
+      osc3.stop(startTime + duration);
     }
 
     window.addEventListener('pointerdown', function() {
-      playCrispClick();
+      playPianoClick();
     }, { capture: true, passive: true });
   })();
 </script>
+
 
