@@ -234,12 +234,13 @@
 </script>
 
 <script>
-  // Global Piano & Crisp Audio Feedback Engine for Storybook Manager UI
+  // Global Loud & Warm Acoustic Grand Piano Engine for Storybook Manager UI
   (function() {
     let audioCtx = null;
     let lastPlay = 0;
     let pianoIdx = 0;
-    const scale = [523.25, 587.33, 659.25, 783.99, 880.00, 1046.50, 987.77, 783.99, 659.25];
+    // Warm acoustic grand piano scale (Middle C4 to C5)
+    const scale = [261.63, 329.63, 392.00, 523.25, 659.25, 523.25, 392.00, 329.63];
 
     function getAudioContext() {
       if (!audioCtx) {
@@ -263,44 +264,56 @@
       const startTime = ctx.currentTime;
       const freq = scale[pianoIdx];
       pianoIdx = (pianoIdx + 1) % scale.length;
-      const duration = 0.22;
+      const duration = 0.55;
 
       const masterGain = ctx.createGain();
       masterGain.connect(ctx.destination);
       masterGain.gain.setValueAtTime(0.0001, startTime);
-      masterGain.gain.linearRampToValueAtTime(0.18, startTime + 0.003);
+      masterGain.gain.linearRampToValueAtTime(0.85, startTime + 0.004); // High volume boost
       masterGain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
 
-      // Fundamental Tone
+      // 1. Fundamental Tone (Sine)
       const osc1 = ctx.createOscillator();
       osc1.type = 'sine';
       osc1.frequency.setValueAtTime(freq, startTime);
       const g1 = ctx.createGain();
-      g1.gain.setValueAtTime(0.8, startTime);
+      g1.gain.setValueAtTime(0.9, startTime);
       osc1.connect(g1);
       g1.connect(masterGain);
       osc1.start(startTime);
       osc1.stop(startTime + duration);
 
-      // 2nd Harmonic Over-tone
+      // 2. Sub-Octave Wooden Body Resonance (0.5x frequency)
+      const oscSub = ctx.createOscillator();
+      oscSub.type = 'sine';
+      oscSub.frequency.setValueAtTime(freq * 0.5, startTime);
+      const gSub = ctx.createGain();
+      gSub.gain.setValueAtTime(0.4, startTime);
+      gSub.gain.exponentialRampToValueAtTime(0.0001, startTime + (duration * 0.6));
+      oscSub.connect(gSub);
+      gSub.connect(masterGain);
+      oscSub.start(startTime);
+      oscSub.stop(startTime + duration);
+
+      // 3. Second Harmonic (Triangle 2x)
       const osc2 = ctx.createOscillator();
       osc2.type = 'triangle';
       osc2.frequency.setValueAtTime(freq * 2.001, startTime);
       const g2 = ctx.createGain();
-      g2.gain.setValueAtTime(0.35, startTime);
-      g2.gain.exponentialRampToValueAtTime(0.0001, startTime + (duration * 0.7));
+      g2.gain.setValueAtTime(0.45, startTime);
+      g2.gain.exponentialRampToValueAtTime(0.0001, startTime + (duration * 0.5));
       osc2.connect(g2);
       g2.connect(masterGain);
       osc2.start(startTime);
       osc2.stop(startTime + duration);
 
-      // 3rd Harmonic Sparkle
+      // 4. Third Harmonic Sparkle (Sine 3x)
       const osc3 = ctx.createOscillator();
       osc3.type = 'sine';
       osc3.frequency.setValueAtTime(freq * 3.002, startTime);
       const g3 = ctx.createGain();
-      g3.gain.setValueAtTime(0.15, startTime);
-      g3.gain.exponentialRampToValueAtTime(0.0001, startTime + (duration * 0.4));
+      g3.gain.setValueAtTime(0.2, startTime);
+      g3.gain.exponentialRampToValueAtTime(0.0001, startTime + (duration * 0.3));
       osc3.connect(g3);
       g3.connect(masterGain);
       osc3.start(startTime);
@@ -312,5 +325,6 @@
     }, { capture: true, passive: true });
   })();
 </script>
+
 
 

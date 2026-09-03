@@ -1,29 +1,28 @@
 /**
- * Crisp & Acoustic Sound Effects Synthesizer using Web Audio API
- * High-performance, zero-latency tactile audio feedback engine.
- * Synthesizes organic micro-variation click, snap, pop, toggle, and piano audio effects.
+ * Acoustic Grand Piano & Microinteraction Sound Effects Synthesizer
+ * High-performance Web Audio API engine.
+ * Synthesizes loud, warm acoustic piano notes with sub-body resonance, felt hammer strike, and decay.
  */
 
-export type SoundEffectType = 'crisp' | 'snap' | 'pop' | 'soft' | 'toggle' | 'piano';
+export type SoundEffectType = 'piano' | 'crisp' | 'snap' | 'pop' | 'soft' | 'toggle';
 
 export interface SoundOptions {
   type?: SoundEffectType;
   volume?: number; // Volume multiplier (0.0 to 1.0)
   pitch?: number;  // Pitch multiplier (0.5 to 2.0)
-  noteFreq?: number; // Specific frequency for piano note (e.g. 523.25)
+  noteFreq?: number; // Specific frequency for piano note (e.g. 261.63 for C4)
 }
 
-// C Major Pentatonic Scale for piano melody progression
+// Warm Acoustic Grand Piano Scale (Middle C4 to C5 range)
 const PIANO_SCALE = [
+  261.63, // C4 (Middle C - Warm Deep Piano Key)
+  329.63, // E4 (Major Third)
+  392.00, // G4 (Fifth)
+  523.25, // C5 (Bright Octave)
+  659.25, // E5 (Sparkle E)
   523.25, // C5
-  587.33, // D5
-  659.25, // E5
-  783.99, // G5
-  880.00, // A5
-  1046.50, // C6
-  987.77, // B5
-  783.99, // G5
-  659.25, // E5
+  392.00, // G4
+  329.63, // E4
 ];
 
 class SoundEngine {
@@ -31,7 +30,7 @@ class SoundEngine {
   private muted: boolean = false;
   private enabled: boolean = false;
   private lastPlayTime: number = 0;
-  private masterVolume: number = 0.28;
+  private masterVolume: number = 0.85; // High volume for clear audibility
   private activeMode: SoundEffectType = 'piano';
   private pianoNoteIndex: number = 0;
 
@@ -83,7 +82,6 @@ class SoundEngine {
   public play(options?: SoundOptions | SoundEffectType): void {
     if (this.muted) return;
 
-    // Guard against audio cluttering if triggered within 15ms
     const nowMs = typeof performance !== 'undefined' ? performance.now() : Date.now();
     if (nowMs - this.lastPlayTime < 15) return;
     this.lastPlayTime = nowMs;
@@ -106,33 +104,13 @@ class SoundEngine {
     if (type === 'piano') {
       this.playPianoNote(ctx, gainNode, startTime, vol, pitch, opts.noteFreq);
     } else if (type === 'crisp') {
-      // High-end tactile click: Pitch sweep + crisp high-frequency noise transient
       const randomPitch = pitch * (0.975 + Math.random() * 0.05);
-      const duration = 0.024;
+      const duration = 0.03;
 
       const osc = ctx.createOscillator();
       osc.type = 'sine';
       osc.frequency.setValueAtTime(2600 * randomPitch, startTime);
       osc.frequency.exponentialRampToValueAtTime(450 * randomPitch, startTime + duration);
-
-      gainNode.gain.setValueAtTime(vol * 0.85, startTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
-
-      osc.connect(gainNode);
-      osc.start(startTime);
-      osc.stop(startTime + duration);
-
-      this.playNoiseClick(ctx, gainNode, startTime, 0.004, vol * 0.45, randomPitch);
-
-    } else if (type === 'snap') {
-      // Sharp mechanical switch snap
-      const randomPitch = pitch * (0.975 + Math.random() * 0.05);
-      const duration = 0.018;
-
-      const osc = ctx.createOscillator();
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(3400 * randomPitch, startTime);
-      osc.frequency.exponentialRampToValueAtTime(650 * randomPitch, startTime + duration);
 
       gainNode.gain.setValueAtTime(vol * 0.9, startTime);
       gainNode.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
@@ -141,19 +119,36 @@ class SoundEngine {
       osc.start(startTime);
       osc.stop(startTime + duration);
 
-      this.playNoiseClick(ctx, gainNode, startTime, 0.003, vol * 0.6, randomPitch);
+      this.playNoiseClick(ctx, gainNode, startTime, 0.005, vol * 0.6, randomPitch);
+
+    } else if (type === 'snap') {
+      const randomPitch = pitch * (0.975 + Math.random() * 0.05);
+      const duration = 0.022;
+
+      const osc = ctx.createOscillator();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(3400 * randomPitch, startTime);
+      osc.frequency.exponentialRampToValueAtTime(650 * randomPitch, startTime + duration);
+
+      gainNode.gain.setValueAtTime(vol * 0.95, startTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+
+      osc.connect(gainNode);
+      osc.start(startTime);
+      osc.stop(startTime + duration);
+
+      this.playNoiseClick(ctx, gainNode, startTime, 0.004, vol * 0.7, randomPitch);
 
     } else if (type === 'pop') {
-      // Round bubble / pill pop sound
       const randomPitch = pitch * (0.975 + Math.random() * 0.05);
-      const duration = 0.035;
+      const duration = 0.04;
 
       const osc = ctx.createOscillator();
       osc.type = 'sine';
       osc.frequency.setValueAtTime(950 * randomPitch, startTime);
       osc.frequency.exponentialRampToValueAtTime(280 * randomPitch, startTime + duration);
 
-      gainNode.gain.setValueAtTime(vol * 0.75, startTime);
+      gainNode.gain.setValueAtTime(vol * 0.85, startTime);
       gainNode.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
 
       osc.connect(gainNode);
@@ -161,16 +156,15 @@ class SoundEngine {
       osc.stop(startTime + duration);
 
     } else if (type === 'toggle') {
-      // Modern UI toggle flick
       const randomPitch = pitch * (0.975 + Math.random() * 0.05);
-      const duration = 0.03;
+      const duration = 0.035;
 
       const osc = ctx.createOscillator();
       osc.type = 'sine';
       osc.frequency.setValueAtTime(550 * randomPitch, startTime);
       osc.frequency.exponentialRampToValueAtTime(1500 * randomPitch, startTime + duration);
 
-      gainNode.gain.setValueAtTime(vol * 0.65, startTime);
+      gainNode.gain.setValueAtTime(vol * 0.8, startTime);
       gainNode.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
 
       osc.connect(gainNode);
@@ -178,16 +172,15 @@ class SoundEngine {
       osc.stop(startTime + duration);
 
     } else {
-      // Soft tap
       const randomPitch = pitch * (0.975 + Math.random() * 0.05);
-      const duration = 0.02;
+      const duration = 0.025;
 
       const osc = ctx.createOscillator();
       osc.type = 'sine';
       osc.frequency.setValueAtTime(1300 * randomPitch, startTime);
       osc.frequency.exponentialRampToValueAtTime(350 * randomPitch, startTime + duration);
 
-      gainNode.gain.setValueAtTime(vol * 0.45, startTime);
+      gainNode.gain.setValueAtTime(vol * 0.6, startTime);
       gainNode.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
 
       osc.connect(gainNode);
@@ -197,7 +190,7 @@ class SoundEngine {
   }
 
   /**
-   * Synthesize acoustic piano note with overtones & hammer strike
+   * Synthesize acoustic grand piano note with rich sub-body, overtones & felt hammer attack
    */
   private playPianoNote(
     ctx: AudioContext,
@@ -207,7 +200,6 @@ class SoundEngine {
     pitch: number,
     explicitFreq?: number
   ) {
-    // Select base note frequency from pentatonic scale or explicit argument
     let baseFreq = explicitFreq;
     if (!baseFreq) {
       baseFreq = PIANO_SCALE[this.pianoNoteIndex];
@@ -215,53 +207,66 @@ class SoundEngine {
     }
 
     const freq = baseFreq * pitch;
-    const duration = 0.22; // 220ms acoustic decay
+    const duration = 0.55; // 550ms rich acoustic sustain ringing
 
-    // Piano Master Envelope (Fast attack, natural exponential decay)
+    // Piano Master Envelope (2ms attack, natural exponential decay)
     destination.gain.setValueAtTime(0.0001, startTime);
-    destination.gain.linearRampToValueAtTime(volume * 0.7, startTime + 0.003); // 3ms hammer strike attack
+    destination.gain.linearRampToValueAtTime(volume * 0.85, startTime + 0.004);
     destination.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
 
-    // 1. Fundamental Tone (Sine)
+    // 1. Fundamental Pitch Tone (Sine Wave at fundamental frequency)
     const osc1 = ctx.createOscillator();
     osc1.type = 'sine';
     osc1.frequency.setValueAtTime(freq, startTime);
 
     const gain1 = ctx.createGain();
-    gain1.gain.setValueAtTime(0.8, startTime);
+    gain1.gain.setValueAtTime(0.9, startTime);
     osc1.connect(gain1);
     gain1.connect(destination);
     osc1.start(startTime);
     osc1.stop(startTime + duration);
 
-    // 2. Second Harmonic Over-Tone (Triangle at 2x frequency for string body resonance)
+    // 2. Sub-Octave Wooden Body Resonance (Sine Wave at 0.5x frequency for deep piano body warmth)
+    const oscSub = ctx.createOscillator();
+    oscSub.type = 'sine';
+    oscSub.frequency.setValueAtTime(freq * 0.5, startTime);
+
+    const gainSub = ctx.createGain();
+    gainSub.gain.setValueAtTime(0.4, startTime);
+    gainSub.gain.exponentialRampToValueAtTime(0.0001, startTime + (duration * 0.6));
+    oscSub.connect(gainSub);
+    gainSub.connect(destination);
+    oscSub.start(startTime);
+    oscSub.stop(startTime + duration);
+
+    // 3. Second Harmonic (Triangle Wave at 2x frequency for hammer strike string overtone)
     const osc2 = ctx.createOscillator();
     osc2.type = 'triangle';
     osc2.frequency.setValueAtTime(freq * 2.001, startTime);
 
     const gain2 = ctx.createGain();
-    gain2.gain.setValueAtTime(0.35, startTime);
-    gain2.gain.exponentialRampToValueAtTime(0.0001, startTime + (duration * 0.7));
+    gain2.gain.setValueAtTime(0.45, startTime);
+    gain2.gain.exponentialRampToValueAtTime(0.0001, startTime + (duration * 0.5));
     osc2.connect(gain2);
     gain2.connect(destination);
     osc2.start(startTime);
     osc2.stop(startTime + duration);
 
-    // 3. Third Harmonic Sparkle (Sine at 3x frequency for high bell timbre)
+    // 4. Third Harmonic Sparkle (Sine Wave at 3x frequency for high acoustic bell clarity)
     const osc3 = ctx.createOscillator();
     osc3.type = 'sine';
     osc3.frequency.setValueAtTime(freq * 3.002, startTime);
 
     const gain3 = ctx.createGain();
-    gain3.gain.setValueAtTime(0.15, startTime);
-    gain3.gain.exponentialRampToValueAtTime(0.0001, startTime + (duration * 0.4));
+    gain3.gain.setValueAtTime(0.2, startTime);
+    gain3.gain.exponentialRampToValueAtTime(0.0001, startTime + (duration * 0.3));
     osc3.connect(gain3);
     gain3.connect(destination);
     osc3.start(startTime);
     osc3.stop(startTime + duration);
 
-    // 4. Soft Felt Hammer Click (Lowpass noise burst in first 3ms)
-    this.playFeltHammerClick(ctx, destination, startTime, 0.004, volume * 0.2, pitch);
+    // 5. Felt Hammer Impact Click (Soft bandpass noise pulse in first 4ms)
+    this.playFeltHammerClick(ctx, destination, startTime, 0.005, volume * 0.35, pitch);
   }
 
   private playFeltHammerClick(
@@ -286,8 +291,8 @@ class SoundEngine {
 
     const filter = ctx.createBiquadFilter();
     filter.type = 'bandpass';
-    filter.frequency.setValueAtTime(1400 * pitch, startTime);
-    filter.Q.setValueAtTime(2.0, startTime);
+    filter.frequency.setValueAtTime(1200 * pitch, startTime);
+    filter.Q.setValueAtTime(1.8, startTime);
 
     const noiseGain = ctx.createGain();
     noiseGain.gain.setValueAtTime(volume, startTime);
