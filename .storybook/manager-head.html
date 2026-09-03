@@ -14,6 +14,13 @@
     display: none !important;
   }
 
+  /* Hide any secondary/duplicate logo container in the sidebar header */
+  .sidebar-header > a:nth-of-type(n+2),
+  .sidebar-header > div:nth-of-type(n+2),
+  .sidebar-header .sasystem-sb-brand:nth-of-type(n+2) {
+    display: none !important;
+  }
+
   /* Custom sasystem Brand Header Container */
   .sasystem-sb-brand {
     display: inline-flex;
@@ -179,14 +186,22 @@
 
     function injectSasystemBrand() {
       const brandLinks = document.querySelectorAll('a.sidebar-brand, a[title="sasystem"], .sidebar-header a');
-      brandLinks.forEach(brand => {
+      brandLinks.forEach((brand, index) => {
+        if (index > 0) {
+          brand.style.display = 'none';
+          if (brand.parentNode) {
+            brand.parentNode.removeChild(brand);
+          }
+          return;
+        }
+
         if (brand.getAttribute('data-sasystem-injected') === 'true') return;
         
         brand.setAttribute('data-sasystem-injected', 'true');
         brand.className = 'sasystem-sb-brand';
         brand.innerHTML = `
           <div class="sasystem-sb-aura"></div>
-          <svg className="sasystem-sb-logo-svg" class="sasystem-sb-logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="sasystem-sb-logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="sb-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#0f172a" />
@@ -232,6 +247,7 @@
     injectSasystemBrand();
   });
 </script>
+
 
 <script>
   // Global Loud & Warm Acoustic Grand Piano Engine for Storybook Manager UI
